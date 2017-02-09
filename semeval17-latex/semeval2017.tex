@@ -29,86 +29,119 @@
 \newcommand\BibTeX{B{\sc ib}\TeX}
 
 %Title format for system description papers by task participants
-\title{[SystemName] at SemEval-2017 Task [TaskNumber]:  [Insert Paper Title Here]}
+\title{Duluth at SemEval-2017 Task 6:  Language Models in Humor Recognition}
 %Title format for task description papers by task organizers
 %\title{SemEval-2017 Task [TaskNumber]:  [Task Name]}
 
 
-\author{First Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\\And
-  Second Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\}
+\author{Xinru Yan \\
+  Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
+  {\tt yanxx418@d.umn.edu} \\\And
+  Ted Pedersen \\
+  Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
+  {\tt tpederse@d.umn.edu} \\}
 
 \date{}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-  This document contains the instructions for preparing a submission or camera-ready
-  manuscript for the proceedings of SemEval-2017. The document itself
-  conforms to its own specifications, and is therefore an example of
-  what your manuscript should look like. These instructions should be
-  used for both papers submitted for review and for final versions of
-  accepted papers.  Authors are asked to conform to all the directions
-  reported in this document.
+  This paper describes the Duluth system that participated in SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor. The system completed Task A and Task B using ngram language models. This paper includes the results of our system with several post-evaluation runs. Our system is ranked highly in both tasks during evaluation.
 \end{abstract}
 
-\section{Credits}
-
-This document has been adapted to SemEval-2017 from the instructions for earlier ACL
-and NAACL proceedings, including those for ACL 2017 by Dan Gildea and
-Min-Yen Kan, NAACL-2017 by Margaret Mitchell, ACL-2012 by Maggie Li
-and Michael White, those from ACL-2010 by Jing-Shing Chang and Philipp
-Koehn, those for ACL-2008 by Johanna D. Moore, Simone Teufel, James
-Allan, and Sadaoki Furui, those for ACL-2005 by Hwee Tou Ng and Kemal
-Oflazer, those for ACL-2002 by Eugene Charniak and Dekang Lin, and
-earlier ACL and EACL formats. Those versions were written by several
-people, including John Chen, Henry S. Thompson and Donald
-Walker. Additional elements were taken from the formatting
-instructions of the {\em International Joint Conference on Artificial
-  Intelligence} and the \emph{Conference on Computer Vision and
-  Pattern Recognition}.
-
 \section{Introduction}
+Humor is considered to be a human-only trait. It is one of the most amusing and mystifying human activities. Since humor represents human uniqueness and intelligence to some extent, it has continuously drawn attention in different research areas such as linguistics, psychology, philosophy and Computer Science. In Computer Science, relevant theories derived from those fields have formed a relatively young area of study - computational humor ~\cite{Recognizing:Humor:On:Twitter}. Humor has not been addressed broadly in current computational research. Many studies have developed decent systems to produce humor \cite{ozbal2012computational}. However, humor recognition is essentially a more challenging and fun task. In order to address these concerns, we develop methods that consider its continuous and subjective nature of humor by learning a sense of humor from a particular source including humorous tweets submitted to a famous Comedy Central TV show, \textit{@midnight with Chris Hardwick}. This research is associated with the SemEval-2017 Task 6. The essential purpose of this research is to make computers understand humor in a subjective way and learn the continuity aspect of humor from a peculiar dataset.\\
+In addition to humor related work, we have also benefited from some research on memorability in developing humor recognition methods.
 
-The following instructions are directed to authors of papers submitted
-to SemEval-2017 or accepted for publication in its proceedings. All
-authors are required to adhere to these specifications. Authors are
-required to provide a Portable Document Format (PDF) version of their
-papers. \textbf{The proceedings are designed for printing on A4
-paper.}
 
-SemEval papers should have the exact same format as ACL 2017 papers with two exceptions:
+
+\section{Background}
+Language models are a straightforward way to collect set of rules by utilizing the fact that words do not appear in an arbitrary order, which means we can learn a lot from a word and its neighbors ~\cite{de2011natural}. A statistical language model is a model that computes the probability of a sequence of words or an upcoming word ~\cite{JM}.\\
+Below are two examples of language modeling:
+To compute the probability of a sequence of words $W$ given the sequence $(w_{1},w_{2},...w_{n})$, we have:
+\begin{equation}
+P(W) = P(w_{1},w_{2},...w_{n})
+\end{equation}
+To compute the probability of an upcoming word $w3$ given the sequence $(w_{1},w_{2})$, the language model gives us the following probability:
+\begin{equation}
+P(w_{3}|w_{1},w_{2})
+\end{equation}
+The idea of word prediction with probabilistic models is called N-gram models, which predict the upcoming word from the previous N-1 words. An N-gram is a contiguous sequence of N words: a unigram is a single word, a bigram is a two-word sequence of words and a trigram is a three-word sequence of words. For example, in tweet "tears in Ramen \#SingleLifeIn3Words", "tears", "in", "Ramen" and "\#SingleLifeIn3Words" are unigrams; "tears in", "in Ramen" and "Ramen \#SingleLifeIn3Words" are bigrams and "tears in Ramen" and "in Ramen \#SingleLifeIn3Words" are trigrams.\\
+In the study on how phrasing affects memorability, in order to analyze the characteristics of memorable quotes, researchers take
+language model approach to investigate distinctiveness feature and employ syntactic measures on the data to evaluate generality feature ~\cite{hello}. Specifically, in favor of evaluating how distinctive a quote is, they evaluate its likelihood with the respect of the “common language” model which consists of the newswire sections of the Brown corpus. They employ six add-1 smoothed language models–unigram, bigram, trigram word language models and unigram, bigram, trigram Part of Speech (POS) language models–on the “common language”model. The idea of using language models to assess the memorability of a quote is suitable for our purpose of detecting how humorous a twitter is. Except for using funny tweets provided by the task to train ngram language models, our system also trained ngram language models on English news data in order to evaluate how distictive, in this case, how funny, a tweet is comparing to news.\\ For our purpose, we trained unigrams, bigrams and trigrams on both sets of training data.
+
+\section{Method}
+Our system estimates tweet probability using ngram models. Specifically, it solves the given problem in four steps:
 \begin{enumerate}
-	\item The review process is single-blind. {\bf Submissions are not anonymous and should use the ACL camera-ready formatting}.
-	\item {\bf Paper titles should follow the required template.} System description papers submitted by task participants should have a title of the form ``[SystemName] at SemEval-2017 Task [TaskNumber]:  [Insert Paper Title Here]''. Task description papers submitted by task organizers should have a title of the form ``SemEval-2017 Task [TaskNumber]:  [Task Name]''. 
+\item Corpus preparing and pre-processing: Collect all training data files to form one training corpus. Pre-processing includes filtering and tokenization.
+\item Language model training: Build n-gram language models by feeding the corpus to KenLM Language Model Toolkit ~\cite{Heafield-estimate}. 
+\item Tweet scoring: Get log probability for each tweet based on the trained ngram language model.
+\item Tweet prediction: According to the log probability
+\begin{itemize}
+\item Given two tweets, comparing two tweets and predicting which one is funnier (for subtask A)
+\item Given a set of tweets associated with one specific hashtag, ranking tweets from the funnest to the least funny (for subtask B)
+\end{itemize}
 \end{enumerate}
 
+\subsection{Corpus preparing and pre-processing}
+In our system, we used two distinct sets of training data: the tweets data and the news data. The tweets data is provided by the SemEval task. It consists of 106 hashtag files, about 21580 tokens. In addition, we collected in total of 6.2 GB of English news data, about 2002655 tokens, from the News Commentary Corpus and the News Craw Corpus from yeas of 2008, 2010 and 2011 \footnote{http://www.statmt.org/wmt11/translation-task.html\#download}.   
+\subsubsection{Preparing}
+To prepare the tweets data, the system takes in total of 106 hashtag files, which includes both trial\_dir and train\_dir from the task, and put all tweets in one plain text file to form the tweet training corpus. Each tweet is on its own line. Be aware that during the development phase of the system, we trained the language model on the train\_dir data and tested it on the trial\_dir data. \\
+For the news data, the system reads in all the sentences from the news files and again, put them in one plain text file to form the news training corpus. Each sentence takes its own line.
+\subsubsection{Pre-processing}
+In general, the pre-processing consists of two steps: filtering and tokenization. The filtering step is mainly for the tweet training corpus. Also, we applied various filtering and tokenziation combinations on experiments to determine the best settings (see section 4). 
+\begin{itemize}
+\item Filtering: the filtering process includes removing following elements from the :
+\begin{itemize}
+\item URLs
+\item Twitter user names with symbol @ indicating the user name
+\item Hashtags with symbol \# indicating the topic of the tweet
+\end{itemize}
+\item Tokenization: For both training data sets we splitted text by space and punctuation marks
+\end{itemize}
+\subsection{Language Model Training}
+Once we have the corpus ready, we use the KenLM Toolkit to train the n-gram language models on the corpus. Language models are estimated from the corpus using modified Kneser-Ney smoothing without pruning. KenLM reads in a plain text file and generates language models in arpa format. We trained three different language models -- unigrams, bigrams and trigrams -- for both training data sets. KenLM also implements back off technique, which simply means it applies the lower order ngram's probability along with its back-off weights if the ngram is not found. Instead of using the real probability of the ngram, KenLM applies base 10 logarithm scheme. Here is an example of the trigram model we trained on the tweets data:
 
-\section{General Instructions}
+\begin{tabular}{c}
+\hline
+ngram 1=21580 \\
+ngram 2=60624 \\
+ngram 3=73837 \\
+unigram:\\
+-4.8225346  \textless unk\textgreater  0 \\
+0  \textless s\textgreater  -0.47505832 \\
+-1.4503417  \textless /s\textgreater  0 \\
+-4.415446  Donner  -0.12937292 \\
+-3.4745252  Party  -0.09994553 \\
+...\\
+\hline
+bigrams:\\
+...\\
+-0.9799023  Drilling Gulf -0.024524588\\
+-3.9588327  of Mexicobe -0.024524588\\
+...\\
+\hline
+trigrams:\\
+...\\
+-1.171928 I'll start thinking\\
+-1.2377753  thinking he cares\\
+...\\
+\hline
+\end{tabular}
 
-Manuscripts must be in two-column format.  Exceptions to the
-two-column format include the title, authors' names and complete
-addresses, which must be centered at the top of the first page, and
-any full-width figures or tables (see the guidelines in
-Subsection~\ref{ssec:first}). {\bf Type single-spaced.}  Start all
-pages directly under the top margin. See the guidelines later
-regarding formatting the first page.  The manuscript should be
-printed single-sided and its length
-should not exceed the maximum page limit described in Section~\ref{sec:length}.
-Pages are numbered for  initial submission. However, {\bf do not number the pages in the camera-ready version}.
+Each ngram line starts with the base 10 logarithm probability of that ngram, followed by the ngram which consists of n words. The base 10 logarithm of the back-off weight for the ngram is followed after optionally. In this trigram language model trained on the tweets data, there are 73837 trigrams in total from the tweet training corpus. Notice that there are three "special" words in a language model: the beginning of a sentence denoted by \textless s\textgreater, the end of a sentence denoted by \textless /s\textgreater and the out of vocabulary word denoted by \textless unk\textgreater. In order to be able to handle the unknown words to estimate the probability of a tweet more accurately, in all our experiments we keep the \textless unk\textgreater word in the language model. To figure out the best setting of language model for both tasks, we experiment using the language model with and without sentence boundaries.
 
-By uncommenting {\small\verb|\aclfinalcopy|} at the top of this 
- document, it will compile to produce an example of the camera-ready formatting; by leaving it commented out, the document will be anonymized for initial submission.  When you first create your submission on softconf, please fill in your submitted paper ID where {\small\verb|***|} appears in the {\small\verb|\def\aclpaperid{***}|} definition at the top.
-
-The review process is double-blind, so do not include any author information (names, addresses) when submitting a paper for review.  
-However, you should maintain space for names and addresses so that they will fit in the final (accepted) version.  The ACL 2017 \LaTeX\ style will create a titlebox space of 2.5in for you when {\small\verb|\aclfinalcopy|} is commented out.  
+\subsection{Tweet Scoring}
+After training the ngram model, the next step is scoring. For each hashtag file that needs to be evaluated, based on the trained ngram language model, the system assigns a base 10 log probability for each tweet in the hashtag file. Here is an example of scored tweet from hashtag file Bad\_Job\_In\_5\_Words.tsv based on the ngram language model trained on the tweets data:\\
+705511149970726912  The host of Singled Out \#BadJobIn5Words @midnight -19.923433303833008
+705538894415003648  Donut receipt maker and sorter  \#BadJobIn5Words @midnight -27.67446517944336
+\subsection{Tweet Prediction}
+The system sorts tweets for each hashtag file based on their score in descending order, meaning the most probable one is listed on the top. For Task A, given a hashtag file, the system goes through the sorted list of tweets, compare each pair of tweets and produces a tsv format file as the task asks for. For each tweet pair twee\_1 and tweet\_2, if tweet\_1 has higher score, system outputs tweet\_ids for the pair followed by "1" and followed by "0" otherwise. For Task B, given a hashtag file, the systm simply outputs tweet\_ids in the order of the sorted list. 
+\section{Experiments and Results}
+Includes result table
+\section{Discussion and Future Work}
+Includes using ML technique in the future
+\section{References} 
 
 \subsection{The Ruler}
 The ACL 2017 style defines a printed ruler which should be presented in the

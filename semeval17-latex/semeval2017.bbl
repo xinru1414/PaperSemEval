@@ -19,6 +19,23 @@ Ashok~K. Chandra, Dexter~C. Kozen, and Larry~J. Stockmeyer. 1981.
 \newblock
   \href{https://doi.org/10.1145/322234.322243}{https://doi.org/10.1145/322234.322243}.
 
+\bibitem[{Danescu-Niculescu-Mizil et~al.(2012)Danescu-Niculescu-Mizil, Cheng,
+  and Kleinberg}]{hello}
+Cristian Danescu-Niculescu-Mizil, Justin Cheng, and Jonand~Lee Lillian
+  Kleinberg. 2012.
+\newblock \href{http://aclweb.org/anthology/P12-1094}{You had me at hello: How
+  phrasing affects memorability}.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)\/}. Association for
+  Computational Linguistics, pages 892--901.
+\newblock
+  \href{http://aclweb.org/anthology/P12-1094}{http://aclweb.org/anthology/P12-1094}.
+
+\bibitem[{De~Kok and Brouwer(2011)}]{de2011natural}
+Dani{\"e}l De~Kok and Harm Brouwer. 2011.
+\newblock Natural language processing for the working programmer.
+\newblock Del.
+
 \bibitem[{for Computing~Machinery(1983)}]{ACM:83}
 Association for Computing~Machinery. 1983.
 \newblock {\em Computing Reviews\/} 24(11):503--512.
@@ -48,5 +65,21 @@ Mary Harper. 2014.
   Association for Computational Linguistics, page~1.
 \newblock
   \href{http://aclweb.org/anthology/C14-1001}{http://aclweb.org/anthology/C14-1001}.
+
+\bibitem[{Heafield et~al.(2013)Heafield, Pouzyrevsky, Clark, and
+  Koehn}]{Heafield-estimate}
+Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn. 2013.
+\newblock
+  \href{http://kheafield.com/professional/edinburgh/estimate\_paper.pdf}{Scalable
+  modified {Kneser-Ney} language model estimation}.
+\newblock In {\em Proceedings of the 51st Annual Meeting of the Association for
+  Computational Linguistics\/}. Sofia, Bulgaria, pages 690--696.
+\newblock
+  \href{http://kheafield.com/professional/edinburgh/estimate\_paper.pdf}{http://kheafield.com/professional/edinburgh/estimate\_paper.pdf}.
+
+\bibitem[{Martin and Jurafsky(2000)}]{JM}
+James~H Martin and Daniel Jurafsky. 2000.
+\newblock Speech and language processing.
+\newblock volume 710.
 
 \end{thebibliography}
