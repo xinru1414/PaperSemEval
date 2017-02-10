@@ -82,4 +82,15 @@ James~H Martin and Daniel Jurafsky. 2000.
 \newblock Speech and language processing.
 \newblock volume 710.
 
+\bibitem[{Ozbal and Strapparava(2012)}]{ozbal2012computational}
+G{\"o}zde Ozbal and Carlo Strapparava. 2012.
+\newblock Computational humour for creative naming.
+\newblock page~15.
+
+\bibitem[{Zhang and Liu(2014)}]{Recognizing:Humor:On:Twitter}
+Renxian Zhang and Naishi Liu. 2014.
+\newblock Recognizing humor on twitter.
+\newblock In {\em Proceedings of the 23rd ACM International Conference on
+  Conference on Information and Knowledge Management\/}. ACM, pages 889--898.
+
 \end{thebibliography}
