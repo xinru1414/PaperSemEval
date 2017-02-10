@@ -135,20 +135,38 @@ After training the ngram model, the next step is scoring. For each hashtag file 
 \subsection{Tweet Prediction}
 The system sorts tweets for each hashtag file based on their score in descending order, meaning the most probable one is listed on the top. For Task A, given a hashtag file, the system goes through the sorted list of tweets, compare each pair of tweets and produces a tsv format file as the task asks for. For each tweet pair twee\_1 and tweet\_2, if tweet\_1 has higher score, system outputs tweet\_ids for the pair followed by "1" and followed by "0" otherwise. For Task B, given a hashtag file, the systm simply outputs tweet\_ids in the order of the sorted list. 
 \section{Experiments and Results}
+Table x.x shows results from developing stage. Note that for tweets data we trained language models on train\_dir data and tested on trial\_dir data. From this table We can tell the best setting to train language models for both data sets: for tweets data we decided to use trigrams and omit sentence boundaries (in this case, tweet boundaries); for news data we chose to train trigram language models on a tokenized news corpus.
 \begin{tabular}{ |p{0.8cm}|p{1cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|}
 \hline
 Data Set & Ngam & @ and \# & sb & lc & token & AA & BD \\
 \hline
-tweets & trigram & True & False & False & False & 0.54 & 0.89 \\
+tweets & trigram & True & False & False & False & 0.543 & 0.887 \\
 \hline
-tweets
+tweets & trigram & True & True & True & False & 0.522 & 0.900 \\
 \hline
-news
+tweets & bigram & True & False & False & False & 0.548 & 0.900 \\ 
 \hline
-news
+news & trigram & NA & False & False & True & 0.539 & 0.923 \\
+\hline
+news & trigram & NA & False & False & False & 0.460 & 0.923 \\
+\hline
+news & bigram & NA & False & False & False & 0.470 & 0.900 \\
 \hline
 \end{tabular}
-Includes result table
+Since in developing stage we used bigram and trigram language models, we added bigram language models in post-evaluation stage. Table x.x shows the results of our system applying trigram models during evaluation along with bigram model results: 
+\begin{tabular}{ |p{0.8cm}|p{1cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|}
+\hline
+Data Set & Ngam & @ and \# & sb & lc & token & AA & BD \\
+\hline
+tweets & trigram & True & False & False & False & 0.397 & 0.967 \\
+\hline
+tweets & bigram & True & False & False & False & 0.522 & 0.900 \\
+\hline
+news & trigram & NA & False & False & True & 0.627 & 0.872 \\
+\hline
+news & bigram & NA & False & False & True & 0.624 & 0.853 \\
+\hline
+\end{tabular}
 \section{Discussion and Future Work}
 We believe that lack of tweets data could cause the failure on the language models comparing the amount of tweets data and news data we used. One way to improve the system, especially the tweets data language model, is to collect more tweets that participate in the hashtag wars. Additionally, we want to try to gather more news data and see if quantity of news training data would still make a difference. Besides applying ngram language model approach to the task, we would also like to try some machine learning techniques, specifically deep learning method such as word2vec. From our perspective, deep learning method could play a role in this task in the sense of developing a system that learns humor from the show's point of view through neurons. It would also be interesting to see if even combining these two methods could help enhance the system.
 \section{References} 
