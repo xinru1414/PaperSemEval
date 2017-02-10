@@ -29,7 +29,7 @@
 \newcommand\BibTeX{B{\sc ib}\TeX}
 
 %Title format for system description papers by task participants
-\title{Duluth at SemEval-2017 Task 6:  Language Models in Humor Recognition}
+\title{Duluth at SemEval-2017 Task 6:  Language Models in Humor Detection}
 %Title format for task description papers by task organizers
 %\title{SemEval-2017 Task [TaskNumber]:  [Task Name]}
 
@@ -46,12 +46,12 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-  This paper describes the Duluth system that participated in SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor. The system completed Task A and Task B using ngram language models. This paper includes the results of our system with several post-evaluation runs. Our system is ranked highly in both tasks during evaluation.
+  This paper describes the Duluth system that participated in SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor. The system completed Task A and Task B using ngram language models, ranking well during evaluation. This paper includes the results of our system with several post-evaluation runs. 
 \end{abstract}
 
 \section{Introduction}
-Humor is considered to be a human-only trait. It is one of the most amusing and mystifying human activities. Since humor represents human uniqueness and intelligence to some extent, it has continuously drawn attention in different research areas such as linguistics, psychology, philosophy and Computer Science. In Computer Science, relevant theories derived from those fields have formed a relatively young area of study - computational humor ~\cite{Recognizing:Humor:On:Twitter}. Humor has not been addressed broadly in current computational research. Many studies have developed decent systems to produce humor ~\cite{ozbal2012computational}. However, humor recognition is essentially a more challenging and fun task. In order to address these concerns, we develop methods that consider its continuous and subjective nature of humor by learning a sense of humor from a particular source including humorous tweets submitted to a famous Comedy Central TV show, \textit{@midnight with Chris Hardwick}. This research is associated with the SemEval-2017 Task 6. The essential purpose of this research is to make computers understand humor in a subjective way and learn the continuity aspect of humor from a peculiar dataset.\\
-In addition to humor related work, we have also benefited from some research on memorability in developing humor recognition methods.
+Since humor represents human uniqueness and intelligence to some extent, it has continuously drawn attention in different research areas such as linguistics, psychology, philosophy and Computer Science. In Computer Science, relevant theories derived from those fields have formed a relatively young area of study - computational humor ~\cite{Recognizing:Humor:On:Twitter}. Humor has not been addressed broadly in current computational research. Many studies have developed decent systems to produce humor \cite{ozbal2012computational}. However, humor detection is essentially a more challenging and fun task. SemEval-2017 Task 6 focuses on humor detection by asking participants to develop systems that learn a sense of humor from the Comedy Central TV show, \textit{@midnight with Chris Hardwick}. Our system applies language model approach to detect humor by training ngram models on two sets of training data, the tweets data and the news data.\\
+
 
 \section{Background}
 Language models are a straightforward way to collect set of rules by utilizing the fact that words do not appear in an arbitrary order, which means we can learn a lot from a word and its neighbors ~\cite{de2011natural}. A statistical language model is a model that computes the probability of a sequence of words or an upcoming word ~\cite{JM}.\\
@@ -66,7 +66,7 @@ P(w_{3}|w_{1},w_{2})
 \end{equation}
 The idea of word prediction with probabilistic models is called N-gram models, which predict the upcoming word from the previous N-1 words. An N-gram is a contiguous sequence of N words: a unigram is a single word, a bigram is a two-word sequence of words and a trigram is a three-word sequence of words. For example, in tweet "tears in Ramen \#SingleLifeIn3Words", "tears", "in", "Ramen" and "\#SingleLifeIn3Words" are unigrams; "tears in", "in Ramen" and "Ramen \#SingleLifeIn3Words" are bigrams and "tears in Ramen" and "in Ramen \#SingleLifeIn3Words" are trigrams.\\
 In the study on how phrasing affects memorability, in order to analyze the characteristics of memorable quotes, researchers take
-language model approach to investigate distinctiveness feature and employ syntactic measures on the data to evaluate generality feature ~\cite{hello}. Specifically, in favor of evaluating how distinctive a quote is, they evaluate its likelihood with the respect of the “common language” model which consists of the newswire sections of the Brown corpus. They employ six add-1 smoothed language models–unigram, bigram, trigram word language models and unigram, bigram, trigram Part of Speech (POS) language models–on the “common language”model. The idea of using language models to assess the memorability of a quote is suitable for our purpose of detecting how humorous a twitter is. Except for using funny tweets provided by the task to train ngram language models, our system also trained ngram language models on English news data in order to evaluate how distictive, in this case, how funny, a tweet is comparing to news.\\ For our purpose, we trained unigrams, bigrams and trigrams on both sets of training data.
+language model approach to investigate distinctiveness feature and employ syntactic measures on the data to evaluate generality feature ~\cite{hello}. Specifically, in favor of evaluating how distinctive a quote is, they evaluate its likelihood with the respect of the “common language” model which consists of the newswire sections of the Brown corpus. They employ six add-1 smoothed language models–unigram, bigram, trigram word language models and unigram, bigram, trigram Part of Speech (POS) language models–on the “common language”model. The idea of using language models to assess the memorability of a quote is suitable for our purpose of detecting how humorous a twitter is. Except for using funny tweets provided by the task to train ngram language models, our system also trained ngram language models on English news data in order to evaluate how distictive, in this case, how funny, a tweet is comparing to news. For our purpose, we trained unigrams, bigrams and trigrams on both sets of training data.
 
 \section{Method}
 Our system estimates tweet probability using ngram models. Specifically, it solves the given problem in four steps:
@@ -100,33 +100,32 @@ In general, the pre-processing consists of two steps: filtering and tokenization
 \subsection{Language Model Training}
 Once we have the corpus ready, we use the KenLM Toolkit to train the n-gram language models on the corpus. Language models are estimated from the corpus using modified Kneser-Ney smoothing without pruning. KenLM reads in a plain text file and generates language models in arpa format. We trained three different language models -- unigrams, bigrams and trigrams -- for both training data sets. KenLM also implements back off technique, which simply means it applies the lower order ngram's probability along with its back-off weights if the ngram is not found. Instead of using the real probability of the ngram, KenLM applies base 10 logarithm scheme. Here is an example of the trigram model we trained on the tweets data:
 
-\begin{tabular}{c}
+
+\begin{tabular}{ |l |c|}
 \hline
 ngram 1=21580 \\
 ngram 2=60624 \\
 ngram 3=73837 \\
+\hline
 unigram:\\
--4.8225346  \textless unk\textgreater  0 \\
-0  \textless s\textgreater  -0.47505832 \\
--1.4503417  \textless /s\textgreater  0 \\
--4.415446  Donner  -0.12937292 \\
--3.4745252  Party  -0.09994553 \\
+-4.8225346   \textless unk\textgreater  0 \\
+0   \textless s\textgreater  -0.47505832 \\
+-1.4503417   \textless /s\textgreater  0 \\
+-4.415446   Donner  -0.12937292 \\
 ...\\
 \hline
 bigrams:\\
 ...\\
 -0.9799023  Drilling Gulf -0.024524588\\
--3.9588327  of Mexicobe -0.024524588\\
 ...\\
 \hline
 trigrams:\\
 ...\\
 -1.171928 I'll start thinking\\
--1.2377753  thinking he cares\\
 ...\\
 \hline
 \end{tabular}
-
+\\\\
 Each ngram line starts with the base 10 logarithm probability of that ngram, followed by the ngram which consists of n words. The base 10 logarithm of the back-off weight for the ngram is followed after optionally. In this trigram language model trained on the tweets data, there are 73837 trigrams in total from the tweet training corpus. Notice that there are three "special" words in a language model: the beginning of a sentence denoted by \textless s\textgreater, the end of a sentence denoted by \textless /s\textgreater and the out of vocabulary word denoted by \textless unk\textgreater. In order to be able to handle the unknown words to estimate the probability of a tweet more accurately, in all our experiments we keep the \textless unk\textgreater word in the language model. To figure out the best setting of language model for both tasks, we experiment using the language model with and without sentence boundaries.
 
 \subsection{Tweet Scoring}
