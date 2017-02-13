@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.8.18)  12 FEB 2017 17:40
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.8.18)  12 FEB 2017 19:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -339,9 +339,6 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 102.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no ” in font ptmr7t!
-
 Underfull \hbox (badness 10000) in paragraph at lines 121--136
 
  []
@@ -374,10 +371,10 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 Here is how much of TeX's memory you used:
  3833 strings out of 495579
  56354 string characters out of 6187322
- 149391 words of memory out of 5000000
+ 143391 words of memory out of 5000000
  7067 multiletter control sequences out of 15000+600000
  18235 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,8n,39p,400b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,8n,39p,510b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on conference_poster_6.pdf (1 page).

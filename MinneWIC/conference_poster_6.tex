@@ -98,7 +98,7 @@ We developed a system called Duluth that participated in the task. The system co
 \section*{\LARGE Background}
 \begin{enumerate}
 \item N-gram models: predict the upcoming word from the previous N-1 words. An N-gram is a contiguous sequence of N words. For example, in tweet "tears in Ramen \#SingleLifeIn3Words", "tears" is an unigram; "tears in" is a bigram and "tears in Ramen" is a trigram.
-\item Markov assumption: the probability of a word depends only on the previous word. For tri-gram language model, we have:
+\item Markov assumption: the probability of a word depends only on a small number of previous words. For tri-gram language model, we have:
 \begin{equation}
 P(w_n|w_1^{n-1})\approx P(w_n|w_{n-2}, w_{n-1})
 \end{equation}
@@ -106,7 +106,7 @@ P(w_n|w_1^{n-1})\approx P(w_n|w_{n-2}, w_{n-1})
 \begin{equation}
 P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
 \end{equation}
-\item How funny the tweet is compare to news data: in the study on how phrasing affects memorability, in favor of evaluating how distinctive a quote is, researchers evaluate its likelihood with the respect of the “common language” model trained based on news data \cite{hello}. The idea of using LMs is suitable for our purpose of detecting how humorous a tweet is. 
+\item How funny the tweet is compare to "common language": in the study on how phrasing affects memorability, in favor of evaluating how memorable a movie quote is, researchers evaluate its likelihood with the respect of the language models trained on news data \cite{hello}. movie quotes that are less like the "common language" are more memorable. The idea of using LMs to assess the memorability of a quote is suitable for our purpose of detecting how humorous a tweet is. 
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
@@ -115,10 +115,10 @@ P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
 \color{Navy}
 
 \section*{\LARGE Dataset}
-Our system estimates tweet probability using ngram models. Except for using tweets provided by the task to train ngram LMs, our system also trained ngram LMs on English news data in order to evaluate how distictive, in this case, how funny, a tweet is comparing to news. 
+Our system estimates tweet probability using ngram models. Except for using tweets provided by the task to train ngram LMs, our system also trained ngram LMs on English news data in order to evaluate how funny a tweet is. Tweets that were more like the tweets model, or less like the news model, were ranked as being more funny.
 
 \begin{itemize}
-\item The tweets data -- provided by the SemEval task ; consists of 106 hashtag files, about 21580 tokens.\\\\
+\item The tweets data -- provided by the SemEval task ; consists of 106 hashtag files, about 21,580 tokens.\\\\
 \begin{tabular}{ c | c } 
 \toprule
 \multicolumn{2}{c}{The hashtag:	\#SingleLifeIn3Words} \\
@@ -133,7 +133,7 @@ Pet is kid. @midnight \#SingleLifeIn3Words & 0 \\
 \bottomrule
 \end{tabular}
 \\\\
-\item The news data -- We collected in total of 6.2 GB of English news data, about 2002655 tokens, from the News Commentary Corpus and the News Craw Corpus (2008, 2010 and 2011) \footnote{http://www.statmt.org/wmt11/translation-task.html\#download}.
+\item The news data -- We collected in total of 6.2 GB of English news data, about 2,002,655 tokens, from the News Commentary Corpus and the News Craw Corpus (2008, 2010 and 2011) \footnote{http://www.statmt.org/wmt11/translation-task.html\#download}.
 \end{itemize}
 
 
@@ -163,7 +163,7 @@ Our system solves the given two tasks in four steps:
 \color{Navy}
 
 \section*{\LARGE Results}
-Run \# 1 respresents trigram LM trained on the tweets data. Run \#2 represents trigram LM traind on the news data.\\\\
+Run \# 1 respresents trigram LM trained on the tweets data. Run \#2 represents trigram LM trained on the news data.\\\\
 \begin{tabular}{l l l l | l l l l} 
 \toprule
 \multicolumn{4}{c}{Task A} & \multicolumn{4}{|c}{Task B}\\
@@ -193,9 +193,8 @@ Run \# 1 respresents trigram LM trained on the tweets data. Run \#2 represents t
 \section*{\LARGE Discussion}
 
 \begin{itemize}
-\item Lack of tweets data could cause the failure on the LMs, comparing the amount of tweets data and news data we used.
-\item To improve the system on the tweets data language model : collect more tweets that participate in the hashtag wars. 
-\item To improve the system on the news data language model : collect more news data and see if quantity of news training data would still make a difference.
+\item Lack of tweets data could cause the failure on the tweets LMs. We would like to train news models using about as much text as we have for the tweets and see how the results compare.
+\item To improve the system : collect more tweets that participate in the hashtag wars for tweets models and more news data for news models. 
 \item Try machine learning techniques.
 \end{itemize}
 
