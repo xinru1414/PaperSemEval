@@ -52,7 +52,7 @@
 \huge\textit{Language Models in Humor Detection}\\[2cm] % Subtitle
 \huge \textbf{Xinru Yan \& Ted Pedersen}\\[0.5cm] % Author(s)
 \huge Department of Computer Science University of Minnesota Duluth\\[0.4cm] % University/organization
-\Large \texttt{yanxx418 \& tpederse @d.umn.edu}\\
+\Large \texttt{\{yanxx418 \& tpederse\} @d.umn.edu}\\
 \end{minipage}
 %
 \begin{minipage}[b]{0.25\linewidth}
@@ -82,9 +82,9 @@
 \color{SaddleBrown} % SaddleBrown color for the introduction
 
 \section*{\LARGE Introduction}
-This research is associated with the SemEval-2017 Task6 \#HashtagWars: Learning a Sense of Humor. The task aims to characterize the sense of humour of a particular source, which consists of humorous tweets submitted to a comedy show \textit{@midnight}. Two subtasks are involved: 
+This research is associated with the SemEval-2017 Task6 \#HashtagWars: Learning a Sense of Humor. The task aims to characterize the sense of humor of a particular source, which consists of humorous tweets submitted to a comedy show \textit{@midnight}. Two subtasks are involved: 
 \begin{itemize}
-\item Subtask A: Pairwise Comparison -- a system should predicts which tweet is funnier for every possible combination of tweet pairs from a given hashtag file.
+\item Subtask A: Pairwise Comparison -- a system should predict which tweet is funnier for every possible combination of tweet pairs from a given hashtag file.
 \item Subtask B: Semi-Ranking -- a system should produce a ranking of tweets from funniest to least funny given an input file of tweets for a specific hashtag file. 
 \end{itemize}
 We developed a system called Duluth that participated in the task. The system completed Task A and Task B using ngram language models (LMs), ranking well during evaluation.
@@ -97,16 +97,16 @@ We developed a system called Duluth that participated in the task. The system co
 
 \section*{\LARGE Background}
 \begin{enumerate}
-\item N-gram models: predict the upcoming word from the previous N-1 words. An N-gram is a contiguous sequence of N words. For example, in tweet "tears in Ramen \#SingleLifeIn3Words", "tears" is an unigram; "tears in" is a bigram and "tears in Ramen" is a trigram.
-\item Markov assumption: the probability of a word depends only on a small number of previous words. For tri-gram language model, we have:
+\item N-gram models: predict the upcoming word from the previous N-1 words. An N-gram is a contiguous sequence of N words. For example, in tweet ``tears in Ramen \#SingleLifeIn3Words'', ``tears'' is an unigram; ``tears in'' is a bigram and ``tears in Ramen'' is a trigram.
+\item Markov assumption: the probability of a word depends only on a small number of previous words. For trigram LM, we have:
 \begin{equation}
 P(w_n|w_1^{n-1})\approx P(w_n|w_{n-2}, w_{n-1})
 \end{equation}
-\item Tri-gram LMs: using trigrams to computer the probability of a complete sequence of words. General equation:
+\item Trigram LM: using trigrams to computer the probability of a complete sequence of words. General equation:
 \begin{equation}
 P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
 \end{equation}
-\item How funny the tweet is compare to "common language": in the study on how phrasing affects memorability, in favor of evaluating how memorable a movie quote is, researchers evaluate its likelihood with the respect of the language models trained on news data \cite{hello}. movie quotes that are less like the "common language" are more memorable. The idea of using LMs to assess the memorability of a quote is suitable for our purpose of detecting how humorous a tweet is. 
+\item How funny the tweet is comparing to the ``common language'': in the study on how phrasing affects memorability, in favor of evaluating how memorable a movie quote is, researchers evaluate its likelihood with the respect of the LMs trained on news data \cite{hello}. Movie quotes that are less like the ``common language'' are more memorable. The idea of using LMs to assess the memorability of a quote is suitable for our purpose of detecting how humorous a tweet is. 
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
 \color{Navy}
 
 \section*{\LARGE Dataset}
-Our system estimates tweet probability using ngram models. Except for using tweets provided by the task to train ngram LMs, our system also trained ngram LMs on English news data in order to evaluate how funny a tweet is. Tweets that were more like the tweets model, or less like the news model, were ranked as being more funny.
+Our system estimates tweet probability using ngram LMs. Except for using tweets provided by the task to train ngram LMs, our system also trained ngram LMs on English news data in order to evaluate how funny a tweet is. Tweets that were more like the tweets model, or less like the news model, were ranked as being more funny.
 
 \begin{itemize}
 \item The tweets data -- provided by the SemEval task ; consists of 106 hashtag files, about 21,580 tokens.\\\\
@@ -133,7 +133,7 @@ Pet is kid. @midnight \#SingleLifeIn3Words & 0 \\
 \bottomrule
 \end{tabular}
 \\\\
-\item The news data -- We collected in total of 6.2 GB of English news data, about 2,002,655 tokens, from the News Commentary Corpus and the News Craw Corpus (2008, 2010 and 2011) \footnote{http://www.statmt.org/wmt11/translation-task.html\#download}.
+\item The news data -- We collected in total of 6.2 GB of English news data, about 2,002,655 tokens, from the News Commentary Corpus and the News Crawl Corpus (2008, 2010 and 2011) \footnote{http://www.statmt.org/wmt11/translation-task.html\#download}.
 \end{itemize}
 
 
@@ -145,7 +145,7 @@ Pet is kid. @midnight \#SingleLifeIn3Words & 0 \\
 %----------------------------------------------------------------------------------------
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 \section*{\LARGE Method}
-Our system solves the given two tasks in four steps:
+Our system solves the given two subtasks in four steps:
 \begin{enumerate}
 \item Corpus preparing and pre-processing: Collect training data files to form one corpus. Pre-processing includes filtering and tokenization.
 \item Language model training: Build ngram LMs by feeding the corpus to KenLM Language Model Toolkit \cite{Heafield-estimate}. 
@@ -182,7 +182,7 @@ Run \# 1 respresents trigram LM trained on the tweets data. Run \#2 represents t
 10 & xiwu & 1 & 0.187 & NA & NA & NA & NA\\
 \bottomrule
 \end{tabular}
-\captionof{table}{SemEval 2017 Task 6 Results}
+\captionof{table}{SemEval 2017 Task 6 Evaluation Results}
 
 %----------------------------------------------------------------------------------------
 %	DISCUSSION
@@ -193,8 +193,8 @@ Run \# 1 respresents trigram LM trained on the tweets data. Run \#2 represents t
 \section*{\LARGE Discussion}
 
 \begin{itemize}
-\item Lack of tweets data could cause the failure on the tweets LMs. We would like to train news models using about as much text as we have for the tweets and see how the results compare.
-\item To improve the system : collect more tweets that participate in the hashtag wars for tweets models and more news data for news models. 
+\item Lack of tweets data could cause the failure on the tweets LMs. We would like to train news LMs using about as much text as we have for the tweets and see how the results compare.
+\item To improve the current system : collect more tweets that participate in the hashtag wars for tweets LMs and more news data for news LMs. 
 \item Try machine learning techniques.
 \end{itemize}
 

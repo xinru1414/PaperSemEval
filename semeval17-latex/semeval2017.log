@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.8.18)  11 FEB 2017 20:41
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.8.18)  14 FEB 2017 18:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -271,8 +271,14 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 47.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1024) in paragraph at lines 53--54
-\OT1/ptm/m/n/10.95 de-cent sys-tems to pro-duce hu-mor ([][]Ozbal and
+Underfull \hbox (badness 1308) in paragraph at lines 53--54
+\OT1/ptm/m/n/10.95 sys-tems to pro-duce hu-mor ([][]Ozbal and Strap-
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 53--54
+\OT1/ptm/m/n/10.95 pa-r-ava[][], [][]2012[][]). How-ever, hu-mor de-tec-tion is
+
  []
 
 
@@ -280,14 +286,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 59.
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no ” in font ptmr7t!
-Missing character: There is no – in font ptmr7t!
-Missing character: There is no – in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no ” in font ptmr7t!
+(Font)              <10.95> on input line 58.
+
+Underfull \hbox (badness 1292) in paragraph at lines 57--59
+\OT1/ptm/b/n/10.95 Language mod-els\OT1/ptm/m/n/10.95 (LMs) are a straight-for-
+ward
+ []
+
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
@@ -297,206 +305,195 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 
 ]
-Underfull \hbox (badness 1838) in paragraph at lines 75--76
-\OT1/ptm/m/n/10.95 Our sys-tem es-ti-mates tweet prob-a-bil-ity us-ing
- []
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no ” in font ptmr7t!
+Missing character: There is no – in font ptmr7t!
+Missing character: There is no – in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no ” in font ptmr7t!
 
-
-Underfull \hbox (badness 1902) in paragraph at lines 78--79
+Underfull \hbox (badness 1902) in paragraph at lines 82--83
 []\OT1/ptm/m/n/10.95 Language model train-ing: Build n-gram
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 82.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 86.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
-
-Underfull \hbox (badness 1558) in paragraph at lines 83--84
-\OT1/ptm/m/n/10.95 one spe-cific hash-tag, rank-ing tweets
- []
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 88.
+(Font)              <9> on input line 92.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 88.
+(Font)              <5> on input line 92.
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--88
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
 [][][]\OT1/ptm/m/n/9 http://www.statmt.org/wmt11/translation-
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 115.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 119.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 115.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 119.
 
-Underfull \hbox (badness 1117) in paragraph at lines 139--142
-\OT1/ptm/m/n/10.95 is scor-ing. For each hash-tag file that needs
+Underfull \hbox (badness 1776) in paragraph at lines 156--156
+\OT1/ptm/m/n/10.95 ing to tri-gram LM. The for-
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 139--142
-\OT1/ptm/m/n/10.95 to be eval-u-ated, based on the trained ngram
+Overfull \hbox (7.54726pt too wide) in paragraph at lines 145--159
+[][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--142
-\OT1/ptm/m/n/10.95 705511149970726912 The host of Sin-
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--142
-\OT1/ptm/m/n/10.95 gled Out #Bad-JobIn5Words @mid-night -
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--142
-\OT1/ptm/m/n/10.95 19.923433303833008 705538894415003648
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 156--156
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 174--174
 []\OT1/ptm/m/n/10.95 0.543| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 156--157
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 174--175
 []\OT1/ptm/m/n/10.95 0.887| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 158--158
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 176--176
 []\OT1/ptm/m/n/10.95 0.522| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 158--159
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 176--177
 []\OT1/ptm/m/n/10.95 0.900| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 160--160
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 178--178
 []\OT1/ptm/m/n/10.95 0.548| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 160--161
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 178--179
 []\OT1/ptm/m/n/10.95 0.900| 
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 162--162
+Overfull \hbox (1.2021pt too wide) in paragraph at lines 180--180
 []\OT1/ptm/m/n/10.95 NA| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 162--162
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 180--180
 []\OT1/ptm/m/n/10.95 0.539| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 162--163
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 180--181
 []\OT1/ptm/m/n/10.95 0.923| 
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 164--164
+Overfull \hbox (1.2021pt too wide) in paragraph at lines 182--182
 []\OT1/ptm/m/n/10.95 NA| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 164--164
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 182--182
 []\OT1/ptm/m/n/10.95 0.460| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 164--165
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 182--183
 []\OT1/ptm/m/n/10.95 0.923| 
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 166--166
+Overfull \hbox (1.2021pt too wide) in paragraph at lines 184--184
 []\OT1/ptm/m/n/10.95 NA| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 166--166
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 184--184
 []\OT1/ptm/m/n/10.95 0.470| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 166--167
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 184--185
 []\OT1/ptm/m/n/10.95 0.900| 
  []
 
 
-Overfull \hbox (2.10574pt too wide) in paragraph at lines 152--169
+Overfull \hbox (2.10574pt too wide) in paragraph at lines 170--187
 [][] 
  []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [3]
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 181--181
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 199--199
 []\OT1/ptm/m/n/10.95 0.397| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 181--182
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 199--200
 []\OT1/ptm/m/n/10.95 0.967| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 183--183
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 201--201
 []\OT1/ptm/m/n/10.95 0.406| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 183--184
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 201--202
 []\OT1/ptm/m/n/10.95 0.944| 
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 185--185
+Overfull \hbox (1.2021pt too wide) in paragraph at lines 203--203
 []\OT1/ptm/m/n/10.95 NA| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 185--185
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 203--203
 []\OT1/ptm/m/n/10.95 0.627| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 185--186
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 203--204
 []\OT1/ptm/m/n/10.95 0.872| 
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 187--187
+Overfull \hbox (1.2021pt too wide) in paragraph at lines 205--205
 []\OT1/ptm/m/n/10.95 NA| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 187--187
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 205--205
 []\OT1/ptm/m/n/10.95 0.624| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 187--188
+Overfull \hbox (4.72061pt too wide) in paragraph at lines 205--206
 []\OT1/ptm/m/n/10.95 0.853| 
  []
 
 
-Overfull \hbox (2.10574pt too wide) in paragraph at lines 177--190
+Overfull \hbox (2.10574pt too wide) in paragraph at lines 195--208
 [][] 
  []
 
 (./semeval2017.bbl
+Underfull \vbox (badness 1253) has occurred while \output is active []
+
+ [4]
 Underfull \hbox (badness 1571) in paragraph at lines 23--31
 []\OT1/ptm/m/n/10 Kenneth Heafield, Ivan Pouzyrevsky, Jonathan H.
  []
@@ -535,22 +532,24 @@ Overfull \hbox (46.45096pt too wide) in paragraph at lines 23--31
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
+ [5
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
  (./semeval2017.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 206.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 206.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 206.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 224.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 224.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
  )
 (\end occurred when \iffalse on line 337 was incomplete) 
 Here is how much of TeX's memory you used:
- 8899 strings out of 495579
- 123048 string characters out of 6187322
- 195946 words of memory out of 5000000
- 12132 multiletter control sequences out of 15000+600000
+ 8900 strings out of 495579
+ 123057 string characters out of 6187322
+ 204661 words of memory out of 5000000
+ 12133 multiletter control sequences out of 15000+600000
  16169 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,10n,37p,1050b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,37p,1255b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on semeval2017.pdf (4 pages).
+Output written on semeval2017.pdf (5 pages).
