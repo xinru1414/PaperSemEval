@@ -3,48 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: semeval2017.aux
 The style file: acl_natbib.bst
 Database file #1: semeval2017.bib
-Warning--empty booktitle in de2011natural
-Warning--empty booktitle in JM
-Warning--empty booktitle in ozbal2012computational
-You've used 6 entries,
+You've used 7 entries,
             2936 wiz_defined-function locations,
-            632 strings with 5846 characters,
-and the built_in function-call counts, 4264 in all, are:
-= -- 344
-> -- 159
+            647 strings with 6332 characters,
+and the built_in function-call counts, 5334 in all, are:
+= -- 439
+> -- 217
 < -- 9
-+ -- 51
-- -- 45
-* -- 275
-:= -- 589
-add.period$ -- 29
-call.type$ -- 6
-change.case$ -- 51
-chr.to.int$ -- 6
-cite$ -- 9
-duplicate$ -- 355
-empty$ -- 363
-format.name$ -- 71
-if$ -- 912
++ -- 70
+- -- 63
+* -- 368
+:= -- 742
+add.period$ -- 34
+call.type$ -- 7
+change.case$ -- 63
+chr.to.int$ -- 7
+cite$ -- 7
+duplicate$ -- 431
+empty$ -- 429
+format.name$ -- 92
+if$ -- 1135
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 66
-newline$ -- 36
-num.names$ -- 24
-pop$ -- 165
+missing$ -- 82
+newline$ -- 41
+num.names$ -- 28
+pop$ -- 177
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 49
 quote$ -- 0
-skip$ -- 147
+skip$ -- 170
 stack$ -- 0
-substring$ -- 166
-swap$ -- 170
+substring$ -- 242
+swap$ -- 226
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
-warning$ -- 3
-while$ -- 28
+type$ -- 60
+warning$ -- 0
+while$ -- 36
 width$ -- 0
-write$ -- 85
-(There were 3 warnings)
+write$ -- 103

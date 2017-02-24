@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.8.18)  14 FEB 2017 18:26
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.8.18)  23 FEB 2017 22:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -271,6 +271,11 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 47.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+Underfull \hbox (badness 1178) in paragraph at lines 53--54
+\OT1/ptm/m/n/10.95 puter sci-ence. In com-puter sci-ence, rel-e-vant
+ []
+
+
 Underfull \hbox (badness 1308) in paragraph at lines 53--54
 \OT1/ptm/m/n/10.95 sys-tems to pro-duce hu-mor ([][]Ozbal and Strap-
  []
@@ -296,6 +301,14 @@ Underfull \hbox (badness 1292) in paragraph at lines 57--59
 ward
  []
 
+
+Underfull \vbox (badness 4634) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 70--72
+\OT1/ptm/m/n/10.95 de-pends only on a small num-ber of pre-vi-ous
+ []
+
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
@@ -305,251 +318,212 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 
 ]
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no ” in font ptmr7t!
-Missing character: There is no – in font ptmr7t!
-Missing character: There is no – in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
-Missing character: There is no ” in font ptmr7t!
-
-Underfull \hbox (badness 1902) in paragraph at lines 82--83
-[]\OT1/ptm/m/n/10.95 Language model train-ing: Build n-gram
+Underfull \hbox (badness 1178) in paragraph at lines 74--76
+\OT1/ptm/m/n/10.95 ness fea-ture  ([][]Danescu-Niculescu-Mizil et al.[][],
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 86.
+
+Underfull \hbox (badness 1342) in paragraph at lines 81--82
+[]\OT1/ptm/m/n/10.95 Language model train-ing: Build N-gram
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 85.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 92.
+(Font)              <9> on input line 91.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 92.
+(Font)              <5> on input line 91.
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
 [][][]\OT1/ptm/m/n/9 http://www.statmt.org/wmt11/translation-
  []
 
+
+Underfull \hbox (badness 1226) in paragraph at lines 101--102
+[]\OT1/ptm/m/n/10.95 Twitter user names: To-kens start-ing
+ []
+
 [2]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 119.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 118.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 119.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 118.
 
-Underfull \hbox (badness 1776) in paragraph at lines 156--156
-\OT1/ptm/m/n/10.95 ing to tri-gram LM. The for-
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (0.52391pt too wide) in paragraph at lines 164--164
+[]\OT1/ptm/m/n/10.95 DataSet| 
  []
 
 
-Overfull \hbox (7.54726pt too wide) in paragraph at lines 145--159
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[]\OT1/ptm/m/n/10.95 # &
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+\OT1/ptm/m/n/10.95 @ re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[]\OT1/ptm/m/n/10.95 Sentence
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+\OT1/ptm/m/n/10.95 Bound-
+ []
+
+
+Overfull \hbox (4.47102pt too wide) in paragraph at lines 164--164
+[]\OT1/ptm/m/n/10.95 Lowercase| 
+ []
+
+
+Overfull \hbox (2.73706pt too wide) in paragraph at lines 164--164
+[]\OT1/ptm/m/n/10.95 Tokenization| 
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 164--165
+[]\OT1/ptm/m/n/10.95 Subtask B
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 174--174
-[]\OT1/ptm/m/n/10.95 0.543| 
+Overfull \hbox (0.52391pt too wide) in paragraph at lines 188--188
+[]\OT1/ptm/m/n/10.95 DataSet| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 174--175
-[]\OT1/ptm/m/n/10.95 0.887| 
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]\OT1/ptm/m/n/10.95 # &
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 176--176
-[]\OT1/ptm/m/n/10.95 0.522| 
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+\OT1/ptm/m/n/10.95 @ re-
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 176--177
-[]\OT1/ptm/m/n/10.95 0.900| 
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]\OT1/ptm/m/n/10.95 Sentence
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 178--178
-[]\OT1/ptm/m/n/10.95 0.548| 
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+\OT1/ptm/m/n/10.95 Bound-
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 178--179
-[]\OT1/ptm/m/n/10.95 0.900| 
+Overfull \hbox (4.47102pt too wide) in paragraph at lines 188--188
+[]\OT1/ptm/m/n/10.95 Lowercase| 
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 180--180
-[]\OT1/ptm/m/n/10.95 NA| 
+Overfull \hbox (2.73706pt too wide) in paragraph at lines 188--188
+[]\OT1/ptm/m/n/10.95 Tokenization| 
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 180--180
-[]\OT1/ptm/m/n/10.95 0.539| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 180--181
-[]\OT1/ptm/m/n/10.95 0.923| 
- []
-
-
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 182--182
-[]\OT1/ptm/m/n/10.95 NA| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 182--182
-[]\OT1/ptm/m/n/10.95 0.460| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 182--183
-[]\OT1/ptm/m/n/10.95 0.923| 
- []
-
-
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 184--184
-[]\OT1/ptm/m/n/10.95 NA| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 184--184
-[]\OT1/ptm/m/n/10.95 0.470| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 184--185
-[]\OT1/ptm/m/n/10.95 0.900| 
- []
-
-
-Overfull \hbox (2.10574pt too wide) in paragraph at lines 170--187
-[][] 
+Underfull \hbox (badness 1097) in paragraph at lines 188--189
+[]\OT1/ptm/m/n/10.95 Subtask B
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3]
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 199--199
-[]\OT1/ptm/m/n/10.95 0.397| 
+[3] (./semeval2017.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 6--15
+[]\OT1/ptm/m/n/10 Cristian Danescu-Niculescu-Mizil, Justin Cheng,
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 199--200
-[]\OT1/ptm/m/n/10.95 0.967| 
+Underfull \hbox (badness 2818) in paragraph at lines 6--15
+\OT1/ptm/m/n/10 Jon Klein-berg, and Lil-lian Lee. 2012.  [][]You
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 201--201
-[]\OT1/ptm/m/n/10.95 0.406| 
+Underfull \hbox (badness 1558) in paragraph at lines 6--15
+\OT1/ptm/m/n/10 had me at hello: How phras-ing af-fects mem-
  []
 
 
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 201--202
-[]\OT1/ptm/m/n/10.95 0.944| 
+Underfull \hbox (badness 1616) in paragraph at lines 6--15
+\OT1/ptm/m/n/10 o-ra-bil-ity[][].  In \OT1/ptm/m/it/10 Pro-ceed-ings of the 50t
+h An-nual
  []
 
 
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 203--203
-[]\OT1/ptm/m/n/10.95 NA| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 203--203
-[]\OT1/ptm/m/n/10.95 0.627| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 203--204
-[]\OT1/ptm/m/n/10.95 0.872| 
- []
-
-
-Overfull \hbox (1.2021pt too wide) in paragraph at lines 205--205
-[]\OT1/ptm/m/n/10.95 NA| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 205--205
-[]\OT1/ptm/m/n/10.95 0.624| 
- []
-
-
-Overfull \hbox (4.72061pt too wide) in paragraph at lines 205--206
-[]\OT1/ptm/m/n/10.95 0.853| 
- []
-
-
-Overfull \hbox (2.10574pt too wide) in paragraph at lines 195--208
-[][] 
- []
-
-(./semeval2017.bbl
-Underfull \vbox (badness 1253) has occurred while \output is active []
-
- [4]
-Underfull \hbox (badness 1571) in paragraph at lines 23--31
-[]\OT1/ptm/m/n/10 Kenneth Heafield, Ivan Pouzyrevsky, Jonathan H.
- []
-
-
-Underfull \hbox (badness 5036) in paragraph at lines 23--31
-\OT1/ptm/m/n/10 Clark, and Philipp Koehn. 2013.  [][]Scal-able
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--31
-\OT1/ptm/m/n/10 mod-i-fied Kneser-Ney lan-guage model es-ti-
- []
-
-
-Underfull \hbox (badness 3019) in paragraph at lines 23--31
-\OT1/ptm/m/n/10 ma-tion[][].  In \OT1/ptm/m/it/10 Pro-ceed-ings of the 51st An-
-nual
- []
-
-
-Underfull \hbox (badness 3482) in paragraph at lines 23--31
+Underfull \hbox (badness 3482) in paragraph at lines 6--15
 \OT1/ptm/m/it/10 Meet-ing of the As-so-ci-a-tion for Com-pu-ta-tional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--31
-\OT1/ptm/m/it/10 Lin-guis-tics\OT1/ptm/m/n/10 . Sofia, Bul-garia, pages 690--69
-6.
+Underfull \hbox (badness 1603) in paragraph at lines 6--15
+\OT1/ptm/m/it/10 Lin-guis-tics: Long Pa-pers - Vol-ume 1\OT1/ptm/m/n/10 . As-so
+-ci-
  []
 
 
-Overfull \hbox (46.45096pt too wide) in paragraph at lines 23--31
-[][]\OT1/ptm/m/n/10 http://kheafield.com/professional/edinburgh/estimate[]paper
-.pdf[][]. 
+Underfull \hbox (badness 6927) in paragraph at lines 6--15
+\OT1/ptm/m/n/10 a-tion for Com-pu-ta-tional Lin-guis-tics, Strouds-
+ []
+
+
+Underfull \hbox (badness 6961) in paragraph at lines 6--15
+\OT1/ptm/m/n/10 burg, PA, USA, ACL '12, pages 892--901.
+ []
+
+
+Overfull \hbox (2.04192pt too wide) in paragraph at lines 6--15
+[][]\OT1/ptm/m/n/10 http://dl.acm.org/citation.cfm?id=2390524.2390647[][]. 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Underfull \hbox (badness 1571) in paragraph at lines 18--22
+[]\OT1/ptm/m/n/10 Kenneth Heafield, Ivan Pouzyrevsky, Jonathan H.
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 36--41
+\OT1/ptm/m/n/10 ten-sions of re-cur-rent neu-ral net-work lan-guage
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 234.
  [5
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 234.
  (./semeval2017.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 224.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 224.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 234.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 234.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 234.
  )
 (\end occurred when \iffalse on line 337 was incomplete) 
 Here is how much of TeX's memory you used:
- 8900 strings out of 495579
- 123057 string characters out of 6187322
- 204661 words of memory out of 5000000
- 12133 multiletter control sequences out of 15000+600000
+ 8904 strings out of 495579
+ 123164 string characters out of 6187322
+ 203520 words of memory out of 5000000
+ 12137 multiletter control sequences out of 15000+600000
  16169 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,37p,1255b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,37p,1299b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on semeval2017.pdf (5 pages).

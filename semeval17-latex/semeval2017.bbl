@@ -2,47 +2,56 @@
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Danescu-Niculescu-Mizil et~al.(2012)Danescu-Niculescu-Mizil, Cheng,
-  and Kleinberg}]{hello}
-Cristian Danescu-Niculescu-Mizil, Justin Cheng, and Jonand~Lee Lillian
-  Kleinberg. 2012.
-\newblock \href{http://aclweb.org/anthology/P12-1094}{You had me at hello: How
-  phrasing affects memorability}.
+  Kleinberg, and Lee}]{hello}
+Cristian Danescu-Niculescu-Mizil, Justin Cheng, Jon Kleinberg, and Lillian Lee.
+  2012.
+\newblock \href{http://dl.acm.org/citation.cfm?id=2390524.2390647}{You had me
+  at hello: How phrasing affects memorability}.
 \newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
-  Computational Linguistics (Volume 1: Long Papers)\/}. Association for
-  Computational Linguistics, pages 892--901.
+  Computational Linguistics: Long Papers - Volume 1\/}. Association for
+  Computational Linguistics, Stroudsburg, PA, USA, ACL '12, pages 892--901.
 \newblock
-  \href{http://aclweb.org/anthology/P12-1094}{http://aclweb.org/anthology/P12-1094}.
-
-\bibitem[{De~Kok and Brouwer(2011)}]{de2011natural}
-Dani{\"e}l De~Kok and Harm Brouwer. 2011.
-\newblock Natural language processing for the working programmer.
-\newblock Del.
+  \href{http://dl.acm.org/citation.cfm?id=2390524.2390647}{http://dl.acm.org/citation.cfm?id=2390524.2390647}.
 
 \bibitem[{Heafield et~al.(2013)Heafield, Pouzyrevsky, Clark, and
   Koehn}]{Heafield-estimate}
 Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn. 2013.
-\newblock
-  \href{http://kheafield.com/professional/edinburgh/estimate\_paper.pdf}{Scalable
-  modified {Kneser-Ney} language model estimation}.
+\newblock Scalable modified {Kneser-Ney} language model estimation.
 \newblock In {\em Proceedings of the 51st Annual Meeting of the Association for
   Computational Linguistics\/}. Sofia, Bulgaria, pages 690--696.
-\newblock
-  \href{http://kheafield.com/professional/edinburgh/estimate\_paper.pdf}{http://kheafield.com/professional/edinburgh/estimate\_paper.pdf}.
 
-\bibitem[{Martin and Jurafsky(2000)}]{JM}
-James~H Martin and Daniel Jurafsky. 2000.
-\newblock Speech and language processing.
-\newblock volume 710.
+\bibitem[{Jurafsky and Martin(2009)}]{JM}
+Daniel Jurafsky and James~H. Martin. 2009.
+\newblock {\em Speech and Language Processing (2Nd Edition)\/}.
+\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA.
+
+\bibitem[{Mihalcea and Strapparava(2006)}]{Learning:To:Laugh}
+Rada Mihalcea and Carlo Strapparava. 2006.
+\newblock Learning to laugh (automatically): Computational models for humor
+  recognition.
+\newblock {\em Computational Intelligence\/} 22(2):126--142.
+
+\bibitem[{Mikolov et~al.(2011)Mikolov, Kombrink, Burget, {\v{C}}ernock{\`y},
+  and Khudanpur}]{mikolov2011extensions}
+Tom{\'a}{\v{s}} Mikolov, Stefan Kombrink, Luk{\'a}{\v{s}} Burget, Jan
+  {\v{C}}ernock{\`y}, and Sanjeev Khudanpur. 2011.
+\newblock Extensions of recurrent neural network language model.
+\newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE
+  International Conference on\/}. IEEE, pages 5528--5531.
 
 \bibitem[{Ozbal and Strapparava(2012)}]{ozbal2012computational}
 G{\"o}zde Ozbal and Carlo Strapparava. 2012.
 \newblock Computational humour for creative naming.
-\newblock page~15.
+\newblock {\em Computational Humor 2012\/} page~15.
 
 \bibitem[{Zhang and Liu(2014)}]{Recognizing:Humor:On:Twitter}
 Renxian Zhang and Naishi Liu. 2014.
-\newblock Recognizing humor on twitter.
+\newblock \href{https://doi.org/10.1145/2661829.2661997}{Recognizing humor on
+  twitter}.
 \newblock In {\em Proceedings of the 23rd ACM International Conference on
-  Conference on Information and Knowledge Management\/}. ACM, pages 889--898.
+  Conference on Information and Knowledge Management\/}. ACM, New York, NY,
+  USA, CIKM '14, pages 889--898.
+\newblock
+  \href{https://doi.org/10.1145/2661829.2661997}{https://doi.org/10.1145/2661829.2661997}.
 
 \end{thebibliography}
