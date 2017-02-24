@@ -196,7 +196,7 @@ news & trigram & NA & False & False & True & 0.627 & 0.872 \\
 news & bigram & NA & False & False & True & 0.624 & 0.853 \\
 \hline
 \end{tabular}
-\caption{Evaluation results and post-evaluation runs. Trigram LM trained on news data ranked 4th place for Subtask A and 1st place for Subtask B during evaluation.}
+\caption{Evaluation results and post-evaluation runs. The trigram LM trained on news data ranked 4th place for Subtask A and 1st place for Subtask B during evaluation.}
 \label{table:4}
 \end{table*}
 
@@ -207,9 +207,9 @@ The system sorts tweets for each hashtag file based on their score, meaning the 
 
 
 \section{Experiments and Results}
-In this section we present the evaluation results of our system, as well as several post-evaluation experiments. Since we implemented both bigram and trigam LMs during the development stage but only results from trigram LMs were submitted for the task, we evaluated bigram LMs in post-evaluation stage as well. 
+In this section we present the results from development stage and the evaluation stage, as well as several post-evaluation experiments. Since we implemented both bigram and trigam LMs during the development stage but only results from trigram LMs were submitted to the task, we evaluated bigram LMs in post-evaluation stage as well. The development restults are based on data from \textit{trial\_dir}. The evaluation and post-evaluation results are based on evaluation data from \textit{gold\_dir}.
 
-Table 3 shows results from developing stage. Note that for tweets data we trained language models on \textit{train\_dir} data and tested on \textit{trial\_dir} data. From this table we can estimate the best setting to train language models for both data sets: for tweets data we decided to use trigrams and omit sentence boundaries; for news data we chose to train trigram LMs on a tokenized news corpus.
+Table 3 shows results from developing stage. From this table we can estimate the best setting to train language models for both data sets: for tweets data we decided to use trigrams and omit sentence boundaries; for news data we chose to train trigram LMs on a tokenized news corpus.
 
 Table 4 shows the results of our system applying trigram LMs during evaluation along with bigram LMs results from the post-evaluation runs. It demonstrates that generally trigram LMs work better than bigram LMs.
 
@@ -219,7 +219,7 @@ We focused on training bigram and trigram LMs considering tweets are normally sh
 
 After comparing the amount of tweets data and news data we used, we believe that lack of tweets data could have caused the tweets LMs to perform worse. Therefore, one way to improve the system, especially the tweets data LM, is to collect more tweets that participate in the hashtag wars. We would also like to train news LMs using about the same amount of data we have for the tweets to see how the results compare. Additionally, we want to gather more news data and see if the quantity of news data would still make a difference. 
 
-Besides, we would also like to try some machine learning techniques, specifically deep learning method such as recurrent neural networks. Studies have shown that neural network based LMs work effectively and outperform standard back-off N-gram models ~\cite{mikolov2011extensions}. In addition, recurrent networks are capable of forming short term memory so it can better deal with problems associated with sequences. From our perspective, deep learning method could play a role in this task. It would also be interesting to see if some combination of these methods could enhance the system.
+Besides, we would also like to try some machine learning techniques, specifically deep learning method such as recurrent neural networks. Studies have shown that neural network based LMs work effectively and outperform standard back-off N-gram models ~\cite{mikolov2011extensions}. In addition, recurrent networks are capable of forming short term memory so it can better deal with problems associated with sequences. It would also be interesting to see if some combination of these methods could enhance the system.
 
 
 
