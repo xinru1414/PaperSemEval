@@ -67,7 +67,7 @@ P(w_{3}|w_{1},w_{2})
 \indent  When we use for example, trigram LM, to predict the conditional probability of the next word, we are thus making the following approximation:
 \begin{equation}
 P(w_n|w_1^{n-1})\approx P(w_n|w_{n-2}, w_{n-1})
-\end{equation}\\
+\end{equation}
 \indent The assumption that the probability of a word depends only on a small number of previous words is called \textbf{Markov} assumption. According to Markov assumption, here we show the general equation for computing the probability of a complete word sequence using trigram LM:
 \begin{equation}
 P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
