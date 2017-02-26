@@ -25,6 +25,18 @@ Daniel Jurafsky and James~H. Martin. 2009.
 \newblock {\em Speech and Language Processing (2Nd Edition)\/}.
 \newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA.
 
+\bibitem[{Markov(1954)}]{markov1954theory}
+AA~Markov. 1954.
+\newblock Theory of algorithms [translated by jacques j. schorr-kon and pst
+  staff] imprint moscow, academy of sciences of the ussr, 1954 [jerusalem,
+  israel program for scientific translations, 1961; available from office of
+  technical services, united states department of commerce] added tp in russian
+  translation of works of the mathematical institute, academy of sciences of
+  the ussr, v. 42.
+\newblock {\em Original title: Teoriya algorifmov.[QA248. M2943 Dartmouth
+  College library. US Dept. of Commerce, Office of Technical Services, number
+  OTS 60-51085]\/} .
+
 \bibitem[{Mihalcea and Strapparava(2006)}]{Learning:To:Laugh}
 Rada Mihalcea and Carlo Strapparava. 2006.
 \newblock Learning to laugh (automatically): Computational models for humor
