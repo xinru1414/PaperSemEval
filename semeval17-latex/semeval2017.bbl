@@ -22,20 +22,22 @@ Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn. 2013.
 
 \bibitem[{Jurafsky and Martin(2009)}]{JM}
 Daniel Jurafsky and James~H. Martin. 2009.
-\newblock {\em Speech and Language Processing (2Nd Edition)\/}.
+\newblock {\em Speech and Language Processing (2nd Edition)\/}.
 \newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA.
 
-\bibitem[{Markov(1954)}]{markov1954theory}
-AA~Markov. 1954.
-\newblock Theory of algorithms [translated by jacques j. schorr-kon and pst
-  staff] imprint moscow, academy of sciences of the ussr, 1954 [jerusalem,
-  israel program for scientific translations, 1961; available from office of
-  technical services, united states department of commerce] added tp in russian
-  translation of works of the mathematical institute, academy of sciences of
-  the ussr, v. 42.
-\newblock {\em Original title: Teoriya algorifmov.[QA248. M2943 Dartmouth
-  College library. US Dept. of Commerce, Office of Technical Services, number
-  OTS 60-51085]\/} .
+\bibitem[{KucÌera and Francis.(1967)}]{BC}
+Henry KucÌera and W.~Nelson Francis. 1967.
+\newblock {\em Computational Analysis of Present-day American English\/}.
+\newblock Brown University Press, Providence, RI, USA.
+
+\bibitem[{Markov(2006)}]{markov1954theory}
+A.~A. Markov. 2006.
+\newblock \href{https://doi.org/10.1017/S0269889706001074}{An example of
+  statistical investigation of the text eugene onegin concerning the connection
+  of samples in chains}.
+\newblock {\em Science in Context\/} 19(4):591–600.
+\newblock
+  \href{https://doi.org/10.1017/S0269889706001074}{https://doi.org/10.1017/S0269889706001074}.
 
 \bibitem[{Mihalcea and Strapparava(2006)}]{Learning:To:Laugh}
 Rada Mihalcea and Carlo Strapparava. 2006.
@@ -51,10 +53,12 @@ Tom{\'a}{\v{s}} Mikolov, Stefan Kombrink, Luk{\'a}{\v{s}} Burget, Jan
 \newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE
   International Conference on\/}. IEEE, pages 5528--5531.
 
-\bibitem[{Ozbal and Strapparava(2012)}]{ozbal2012computational}
-G{\"o}zde Ozbal and Carlo Strapparava. 2012.
-\newblock Computational humour for creative naming.
-\newblock {\em Computational Humor 2012\/} page~15.
+\bibitem[{{\"O}zbal and Strapparava(2012)}]{ozbal2012computational}
+G{\"o}zde {\"O}zbal and Carlo Strapparava. 2012.
+\newblock A computational approach to the automation of creative naming.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics: Long Papers-Volume 1\/}. Association for
+  Computational Linguistics, pages 703--711.
 
 \bibitem[{Zhang and Liu(2014)}]{Recognizing:Humor:On:Twitter}
 Renxian Zhang and Naishi Liu. 2014.

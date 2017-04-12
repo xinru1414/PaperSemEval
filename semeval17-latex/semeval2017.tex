@@ -46,29 +46,19 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-  This paper describes the Duluth system that participated in SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor. The system completed Subtask A and Subtask B using N-gram language models, ranking well during evaluation. This paper includes the results of our system during development and evaluation stage, with two post-evaluation results. 
+  This paper describes the Duluth system that participated in SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor. The system participated in Subtask A and Subtask B using N-gram language models, ranking highly in the evaluation. This paper includes the results of our system during development and evaluation stage and two post-evaluation results. 
 \end{abstract}
 
 \section{Introduction}
-Since humor represents human uniqueness and intelligence to some extent, it has continuously drawn attention in different research areas such as linguistics, psychology, philosophy and computer science. In computer science, relevant theories derived from those fields have formed a relatively young area of study, \textit{computational humor} \cite{Recognizing:Humor:On:Twitter}. Humor has not been addressed broadly in current computational research. Many studies have developed decent systems to produce humor \cite{ozbal2012computational}. However, \textit{humor detection} is essentially a more challenging and fun problem. For example, Mihalcea and Strapparava draw particular attention on automatic humor recognition in their work \cite{Learning:To:Laugh}. SemEval-2017 Task 6 focuses on \textit{humor detection} by asking participants to develop systems that learn a sense of humor from the Comedy Central TV show, \textit{@midnight with Chris Hardwick}. Our system, Duluth, applies the language model approach to detect humor by training N-gram language models on two sets of training data, the tweets data and the news data.
+Humor represents human uniqueness and intelligence to some extent and has continuously drawn attention in different research areas such as linguistics, psychology, philosophy and computer science. In computer science, relevant theories derived from those fields have formed a relatively new area of study, \textit{computational humor} \cite{Recognizing:Humor:On:Twitter}. Humor has not been addressed broadly in current computational research. Many studies have developed effective systems to produce humor \cite{ozbal2012computational}. However, \textit{humor detection} is essentially a more challenging and fun problem. For example, Mihalcea and Strapparava draw particular attention on automatic humor recognition in their work \cite{Learning:To:Laugh}. SemEval-2017 Task 6 focuses on \textit{humor detection} by asking participants to develop systems that learn a sense of humor from the Comedy Central TV show, \textit{@midnight with Chris Hardwick}. Our system detects humor by training N-gram language models on two sets of training data, the tweets data and the news data.
 
 
 \section{Background}
-Training \textbf{Language models} (LMs) is a straightforward way to collect set of rules by utilizing the fact that words do not appear in an arbitrary order, which means we can gain useful information from a word and its neighbors ~\cite{JM}. A statistical language model is a model that computes the probability of a sequence of words or an upcoming word ~\cite{JM}. Below are two examples of language modeling:
-
-To compute the probability of a sequence of words $W$ given the sequence $(w_{1},w_{2},w_{3})$, we have:
-\begin{equation}
-P(W) = P(w_{1},w_{2},w_{3})
-\end{equation}
-
-To compute the probability of an upcoming word $w_3$ given the sequence $(w_{1},w_{2})$, we have:
-\begin{equation}
-P(w_{3}|w_{1},w_{2})
-\end{equation}
+Training \textbf{Language Models} (LMs) is a straightforward way to collect set of rules by utilizing the fact that words do not appear in an arbitrary order, which means we can gain useful information from a word and its neighbors ~\cite{JM}. A statistical language model is a model that computes the probability of a sequence of words or an upcoming word ~\cite{JM}. 
 
 The idea of word prediction with probabilistic models is called the N-gram model, which predicts the upcoming word from the previous N-1 words. An N-gram is a contiguous sequence of N words: a unigram is a single word, a bigram is a two-word sequence of words and a trigram is a three-word sequence of words. For example, in tweet ``tears in Ramen \#SingleLifeIn3Words'', ``tears'', ``in'', ``Ramen'' and ``\#SingleLifeIn3Words'' are unigrams; ``tears in'', ``in Ramen'' and ``Ramen \#SingleLifeIn3Words'' are bigrams and ``tears in Ramen'' and ``in Ramen \#SingleLifeIn3Words'' are trigrams.
 
-When we use for example, a trigram LM, to predict the conditional probability of the next word, we are thus making the following approximation:
+When we use for instance, a trigram Language Model (LM), to predict the conditional probability of the next word, we are thus making the following approximation:
 \begin{equation}
 P(w_n|w_1^{n-1})\approx P(w_n|w_{n-2}, w_{n-1})
 \end{equation}
@@ -77,13 +67,15 @@ The assumption that the probability of a word depends only on a small number of 
 \begin{equation}
 P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
 \end{equation}
+ 
+In the study on how phrasing affects memorability, in order to analyze the characteristics of memorable quotes, researchers take the language model approach to investigate the distinctiveness feature ~\cite{hello}. Specifically, to evaluate how distinctive a quote is, they evaluate its likelihood with the respect of the ``common language'' model which consists of the newswire sections of the Brown corpus ~\cite{BC}. They employ LMs on the ``common language'' and come to the conclusion that movie quotes which are less like the ``common language'' (i.e., more distinctive) are more memorable. The idea of using LMs to assess the memorability of a quote based on its distictiveness is suitable for our purpose of detecting how humorous (i.e., how distinctive a tweet is comparing to other tweets). In our case, tweets that are less like the ``common language'' (i.e., more distinctive) are considered to be funnier. We use English news as our ``common language''.
 
-In the study on how phrasing affects memorability, in order to analyze the characteristics of memorable quotes, researchers take the language model approach to investigate the distinctiveness feature ~\cite{hello}. Specifically, to evaluate how distinctive a quote is, they evaluate its likelihood with the respect of the ``common language'' model which consists of the newswire sections of the Brown corpus. They employ LMs on the ``common language'' and come to the conclusion that movie quotes which are less like the ``common language'' are more memorable. The idea of using LMs to assess the memorability of a quote is suitable for our purpose of detecting how humorous a tweet is. Except for using tweets provided by the task to train N-gram LMs, our system also trained N-gram LMs on English news data in order to evaluate how distinctive, in this case, how funny, a tweet is comparing to the tweets model and the news model. Tweets that are more like the tweets model, or less like the news model, are ranked as being more funny. For our purpose, we trained bigram LMs and trigram LMs on both sets of training data.
+In order to evaluate how funny a tweet is, we train LMs on two datasets: the tweets data and the news data. For the tweets data LMs, tweets that are more like the tweets LMs (i.e., have higher probability score) are ranked as being more funny. For the news data LMs, tweets that are less like the news LMs (i.e., have lower probability score) are ranked as being more funny. For our purpose, we train bigram LMs and trigram LMs on both sets of training data.
 
 KenLM, as a language modeling tool, is used in our system ~\cite{Heafield-estimate}. LMs are estimated from the corpus using modified Kneser-Ney smoothing without pruning. KenLM reads a text file and generates LMs in ARPA format. KenLM also implements back-off technique, which means if the N-gram is not found, it applies the lower order N-gram's probability along with its back-off weights. Instead of using the real probability of the N-gram, KenLM applies the logarithm scheme.
 
 \section{Method}
-Our system estimated tweet probability using N-gram LMs. Specifically, it solved the comparison (Subtask A) and semi-ranking (Subtask B) subtasks in four steps:
+Our system \footnote{https://github.umn.edu/yanxx418/HumorDetection-SemEval2017Task6} estimated tweet probability using N-gram LMs. Specifically, it solved the comparison (Subtask A) and semi-ranking (Subtask B) subtasks in four steps:
 \begin{enumerate}
 \item Corpus preparation and pre-processing: Collected all training data files to form one training corpus. Pre-processing included filtering and tokenization.
 \item Language model training: Built N-gram LMs by feeding the corpus to the KenLM Language Model Toolkit. 
@@ -96,7 +88,7 @@ Our system estimated tweet probability using N-gram LMs. Specifically, it solved
 \end{enumerate}
 
 \subsection{Corpus Preparation and Pre-processing}
-The Duluth system uses two distinct sets of training data: the tweets data and the news data. The tweets data was provided by the SemEval task. It consisted of 106 hashtag files with about 21,000 tokens. We collected in total of 6.2 GB of English news data with about 2,000,000 tokens from the News Commentary Corpus and the News Crawl Corpus from 2008, 2010 and 2011 \footnote{http://www.statmt.org/wmt11/translation-task.html\#download}.   
+The Duluth system uses two distinct sets of training data: the tweets data and the news data. The tweets data was provided by the SemEval task. It consisted of 106 hashtag files with about 21,000 tokens. We collected in total of 6.2 GB of English news data with about 2,000,000 tokens from the News Commentary Corpus and the News Crawl Corpus from 2008, 2010 and 2011 \footnote{http://www.statmt.org/wmt11/featured-translation-task.html}.   
 \subsubsection{Preparation}
 To prepare the tweets training corpus, the system took each tweet from the hashtag files, which included tweets from both \textit{train\_dir} and \textit{trial\_dir} from the task, and created a text file with each tweet on its own line. During the development stage of the system we trained LMs solely on the \textit{train\_dir} data, which included 100 hashtag files; we tested the system on the \textit{trial\_dir} data consisting of 6 hashtag files. For the news data, the system read each sentence from the news files and created a text file with each sentence per line to form the news training corpus. 
 \subsubsection{Pre-processing}
@@ -112,41 +104,10 @@ The pre-processing consisted of two steps: filtering and tokenization. The filte
 \end{itemize}
 
 \subsection{Language Model Training}
-Once we had the corpora ready, we used the KenLM Toolkit to train the N-gram LMs on each corpus. We trained two different LMs, bigrams and trigrams, on both tweets and news training data sets. Table 1 shows an example ARPA file of the trigram LM we trained on the tweets data:
-
-\begin{table}[h!]
-\begin{tabular}{ |l |c|}
-\hline
-N-gram 1 = 21580 \\
-N-gram 2 = 60624 \\
-N-gram 3 = 73837 \\
-\hline
-unigram:\\
--4.8225346   \textless unk\textgreater{}   0 \\
-0   \textless s\textgreater{}   -0.47505832 \\
--1.4503417   \textless /s\textgreater{}   0 \\
--4.415446   Donner  -0.12937292 \\
-...\\
-\hline
-bigrams:\\
-...\\
--0.9799023  Drilling Gulf -0.024524588\\
-...\\
-\hline
-trigrams:\\
-...\\
--1.171928 I'll start thinking\\
-...\\
-\hline
-\end{tabular}
-\caption{An example ARPA file of a trigram LM trained on the tweets data}
-\label{table:1}
-\end{table}
-
-The ARPA file starts with a header, listing the number of each N-gram. Each N-gram line starts with the logarithm probability of that N-gram, followed by the N-gram which consists of N words. The logarithm of the back-off weight for the N-gram optionally follows after. Notice that there are three ``special'' words in a language model: the beginning of a sentence denoted by \textless s\textgreater, the end of a sentence denoted by \textless /s\textgreater{} and the out of vocabulary word denoted by \textless unk\textgreater. In order to be able to handle the unknown words to estimate the probability of a tweet more accurately, in all our experiments we kept the \textless unk\textgreater{} word in our LMs. To derive the best setting of the LMs for both tasks, we experimented using the language model with and without sentence boundaries.
+Once we had the corpora ready, we used the KenLM Toolkit to train the N-gram LMs on each corpus. We trained two different LMs, bigrams and trigrams, on both tweets and news training data sets. Our LMs were trained to able to handle the unknown words to estimate the probability of a tweet more accurately. To derive the best setting of the LMs for both tasks, we experimented using the language model with and without sentence boundaries.
 
 \subsection{Tweet Scoring}
-After training the N-gram LMs, the next step was scoring. For each hashtag file that needed to be evaluated, based on the trained N-gram LM, a logarithm score was assigned by our system for each tweet in the hashtag file. The larger the score, the more likely that the tweet appeared with respect to that LM. Table 2 shows an example of two scored tweets from hashtag file \textit{Bad\_Job\_In\_5\_Words.tsv} based on the trigram LM trained on the tweets data.
+After training the N-gram LMs, the next step was scoring. For each hashtag file that needed to be evaluated, based on the trained N-gram LM, a logarithm score was assigned by our system for each tweet in the hashtag file. The larger the score, the more likely that the tweet appeared with respect to that LM. Table 1 shows an example of two scored tweets from hashtag file \textit{Bad\_Job\_In\_5\_Words.tsv} based on the trigram LM trained on the tweets data.
 
 \begin{table*}[h!]
 \centering
@@ -161,7 +122,34 @@ tweet\_id & tweet & score \\
 705538894415003648 & Donut receipt maker and sorter  \#BadJobIn5Words @midnight & -27.67446517944336 \\
 \hline
 \end{tabular}
-\caption{Scored tweet according to the trigram LM. The format follows .tsv file provided by the task. The first column shows tweets\_id; the second column shows tweets; the third column shows the probability score computed based on the trigram LM. }
+\caption{Scored tweets according to the trigram LM. The log probability scores computed based on the trigram LM are shown in the third column.}
+\label{table:1}
+\end{table*}
+
+\begin{table*}[h!]
+\centering
+\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.5cm}|p{1.9cm}|p{1.7cm}|p{1.7cm}|}
+\hline
+DataSet & N-gram & \# and @ removed  & Sentence Boundaries & Lowercase & Tokenization & Subtask A Accuracy & Subtask B Distance \\
+\hline
+\textbf{tweets} & \textbf{trigram} & \textbf{False} & \textbf{False} & \textbf{False} & \textbf{False} & \textbf{0.543} & \textbf{0.887} \\
+\hline
+tweets & bigram & False & False & False & False & 0.548 & 0.900 \\ 
+\hline
+tweets & trigram & False & True & True & False & 0.522 & 0.900 \\
+\hline
+tweets & bigram & False & True & True & False & 0.534 & 0.887 \\
+\hline
+\textbf{news} & \textbf{trigram} & \textbf{NA} & \textbf{False} & \textbf{False} & \textbf{True} & \textbf{0.539} & \textbf{0.923} \\
+\hline
+news & bigram & NA & False & False & True & 0.524 & 0.924 \\
+\hline
+news & trigram & NA & False & False & False & 0.460 & 0.923 \\
+\hline
+news & bigram & NA & False & False & False & 0.470 & 0.900 \\
+\hline
+\end{tabular}
+\caption{Development results based on \textit{trial\_dir} data. The settings we chose to train LMs are in bold.}
 \label{table:2}
 \end{table*}
 
@@ -169,62 +157,39 @@ tweet\_id & tweet & score \\
 \centering
 \begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.5cm}|p{1.9cm}|p{1.7cm}|p{1.7cm}|}
 \hline
-DataSet & N-gram & \# \& @ removed  & Sentence Boundaries & Lowercase & Tokenization & Subtask A Accuracy & Subtask B Distance \\
+DataSet & N-gram & \# and @ removed  & Sentence Boundaries & Lowercase & Tokenization & Subtask A Accuracy & Subtask B Distance \\
 \hline
-tweets & trigram & False & False & False & False & 0.543 & 0.887 \\
-\hline
-tweets & trigram & False & True & True & False & 0.522 & 0.900 \\
-\hline
-tweets & bigram & False & False & False & False & 0.548 & 0.900 \\ 
-\hline
-news & trigram & NA & False & False & True & 0.539 & 0.923 \\
-\hline
-news & trigram & NA & False & False & False & 0.460 & 0.923 \\
-\hline
-news & bigram & NA & False & False & False & 0.470 & 0.900 \\
-\hline
-\end{tabular}
-\caption{Development results. The development results are based on data from \textit{trial\_dir}. In general, trigram LMs outperform bigram LMs.}
-\label{table:3}
-\end{table*}
-
-\begin{table*}[h!]
-\centering
-\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.5cm}|p{1.9cm}|p{1.7cm}|p{1.7cm}|}
-\hline
-DataSet & N-gram & \# \& @ removed  & Sentence Boundaries & Lowercase & Tokenization & Subtask A Accuracy & Subtask B Distance \\
-\hline
-tweets & trigram & False & False & False & False & 0.397 & 0.967 \\
+\textbf{tweets} & \textbf{trigram} & \textbf{False} & \textbf{False} & \textbf{False} & \textbf{False} & \textbf{0.397} & \textbf{0.967} \\
 \hline
 tweets & bigram & False & False & False & False & 0.406 & 0.944 \\
 \hline
-news & trigram & NA & False & False & True & 0.627 & 0.872 \\
+\textbf{news} & \textbf{trigram} & \textbf{NA} & \textbf{False} & \textbf{False} & \textbf{True} & \textbf{0.627} & \textbf{0.872} \\
 \hline
 news & bigram & NA & False & False & True & 0.624 & 0.853 \\
 \hline
 \end{tabular}
-\caption{Evaluation and post-evaluation results. The evaluation and post-evaluation results are based on evaluation data from \textit{gold\_dir}. The trigram LM trained on the news data ranked 4th place for Subtask A and 1st place for Subtask B during evaluation.}
-\label{table:4}
+\caption{Evaluation results (bold) and post-evaluation results based on \textit{evaluation\_dir} data. The trigram LM trained on the news data ranked 4th place on Subtask A and 1st place on Subtask B.}
+\label{table:3}
 \end{table*}
 
 \subsection{Tweet Prediction}
-The system sorted tweets for each hashtag file based on their score, meaning the funniest one was listed on the top i.e. if the system used a tweets LM, the tweets would be sorted in descending order. In the case that it used a news LM, the tweets would be sorted in ascending order. For Subtask A, given a hashtag file, the system went through the sorted list of tweets, compared each pair of tweets and produced a tsv format file. For each tweet pair, if the first tweet was funnier than the second one, the system would output the tweet\_ids for the pair followed by ``1''. Otherwise it output the tweet\_ids followed by ``0''. For Subtask B, given a hashtag file, the system output the tweet\_ids starting from the funniest.
+The system sorted tweets for each hashtag file based on their score, meaning the funniest one was listed on the top (i.e., if the system used a tweets LM), the tweets would be sorted in descending order. In the case that it used a news LM, the tweets would be sorted in ascending order. For Subtask A, given a hashtag file, the system went through the sorted list of tweets, compared each pair of tweets and produced a tsv format file. For each tweet pair, if the first tweet was funnier than the second one, the system would output the tweet\_ids for the pair followed by ``1''. Otherwise it output the tweet\_ids followed by ``0''. For Subtask B, given a hashtag file, the system output the tweet\_ids starting from the funniest.
 
 
 \section{Experiments and Results}
-In this section we present the results from the development stage (\textit{Table 3}), the evaluation stage (\textit{Table 4}), as well as two post-evaluation results (\textit{Table 4}). Since we implemented both bigram and trigam LMs during the development stage but only results from trigram LMs were submitted to the task, we evaluated bigram LMs in the post-evaluation stage. Note that the accuracy and distance measurements listed in Table 3 and Table 4 are provided by the task. 
+In this section we present the results from the development stage (\textit{Table 2}), the evaluation stage (\textit{Table 3}), as well as two post-evaluation results (\textit{Table 3}). Since we implemented both bigram and trigam LMs during the development stage but only results from trigram LMs were submitted to the task, we evaluated bigram LMs in the post-evaluation stage. Note that the accuracy and distance measurements listed in Table 2 and Table 3 are provided by the task. 
 
-Table 3 shows results from the development stage. From this table we can estimate the best setting to train LMs for both data sets: for the tweets data we decided to use trigrams and omit sentence boundaries; for the news data we chose to train trigram LMs on a tokenized news corpus.
+Table 2 shows results from the development stage. From this table we can estimate the best setting to train LMs for both data sets. For tweets data, keeping the \# and @, omitting sentence boundary, being case sensitive and ignoring tokenization is the best setting. Under the best setting, trigram LM performed better on Subtask B and bigram LM performed better on Subtask A. We decided to train trigram LMs since the advantage of trigram LMs on Subtask B is relatively more significant. For the news data, tokenization helped to improve the performance of LMs. Omitting sentence boundaries, being case sensitive along with tokenization is the best setting. Trigram performed better considering both tasks under the best setting so we chose to train trigram LMs.
 
-Table 4 shows the results of our system applying trigram LMs during evaluation along with bigram LMs results from the post-evaluation runs. It demonstrates that trigram LMs work better than bigram LMs.
+Table 3 shows the results of our system applying trigram LMs during evaluation along with bigram LMs results from the post-evaluation runs. For tweets data, bigram LM performed slightly better on both tasks than trigram LM. For news data, trigram LM had a slight advantage over bigram LM on Subtask A and bigram LM performed better on Subtask B. 
 
 
 \section{Discussion and Future Work}
-We focused on training bigram and trigram LMs because tweets are normally short and concise. Trigrams outperform bigrams because trigrams have relatively better coverage than bigrams. 
+We focused on training bigram and trigram LMs because tweets are normally short and concise. During the development stage, LMs trained on the tweets data performed better than LMs trained on the news data. However during the evaluation and post-evaluation stage, LMs trained on the news data had a significant improvement. We believe there are two reasons. Firstly, the news data LMs had a huge success on one of the hashtag files, \textit{BreakUpIn5Words}, on both Subtask A (with accuracy of 0.913) and Subtask B (with distance score at 0.636) in evaluation\_dir. Secondly, the trial\_dir data is more similar to the train\_dir data than the evaluation\_dir data, which could cause the tweets LMs trained on the train\_dir data capturing characteristics better on the trial\_dir than on the evaluation\_dir. The results also showed that generally speaking when using the same training dataset, bigram LMs had a slightly better performance than trigram LMs, although their performances are really similar. This indicates that for this task there are no significant differences between using bigram LMs and trigram LMs. It also suggests that in the future we could lightly focus on bigram LMs and even try unigram LMs and character-level LMs.
 
 After comparing the amount of tweets data and news data we used, we believe that the lack of tweets data could have caused the tweets LMs to perform worse. Therefore, one way to improve the system, especially the tweets data LM, is to collect more tweets that participate in the hashtag wars. We would also like to train news LMs using the same amount of data we have for the tweets to see how the results compare. Additionally, we want to gather more news data and see if the quantity of news data would still make a difference. 
 
-Besides, we would like to try some machine learning techniques, specifically deep learning methods such as recurrent neural networks. Studies have shown that neural network based LMs work effectively and outperform standard back-off N-gram models ~\cite{mikolov2011extensions}. In addition, recurrent neural networks are capable of forming short term memory so it can better deal with problems associated with sequences. It would be interesting to see if some combination of these methods could enhance the system.
+Furthermore, we would like to try some machine learning techniques, specifically deep learning methods such as recurrent neural networks. Studies have shown that neural network based LMs work effectively and outperform standard back-off N-gram models ~\cite{mikolov2011extensions}. In addition, recurrent neural networks are capable of forming short term memory so it can better deal with problems associated with sequences. It would be interesting to see if some combination of these methods could enhance the system.
 
 
 
