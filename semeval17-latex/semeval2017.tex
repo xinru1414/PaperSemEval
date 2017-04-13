@@ -75,7 +75,7 @@ In order to evaluate how funny a tweet is, we train LMs on two datasets: the twe
 KenLM, as a language modeling tool, is used in our system ~\cite{Heafield-estimate}. LMs are estimated from the corpus using modified Kneser-Ney smoothing without pruning. KenLM reads a text file and generates LMs in ARPA format. KenLM also implements back-off technique, which means if the N-gram is not found, it applies the lower order N-gram's probability along with its back-off weights. Instead of using the real probability of the N-gram, KenLM applies the logarithm scheme.
 
 \section{Method}
-Our system \footnote{https://github.umn.edu/yanxx418/HumorDetection-SemEval2017Task6} estimated tweet probability using N-gram LMs. Specifically, it solved the comparison (Subtask A) and semi-ranking (Subtask B) subtasks in four steps:
+Our system \footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} estimated tweet probability using N-gram LMs. Specifically, it solved the comparison (Subtask A) and semi-ranking (Subtask B) subtasks in four steps:
 \begin{enumerate}
 \item Corpus preparation and pre-processing: Collected all training data files to form one training corpus. Pre-processing included filtering and tokenization.
 \item Language model training: Built N-gram LMs by feeding the corpus to the KenLM Language Model Toolkit. 
