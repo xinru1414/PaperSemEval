@@ -97,13 +97,13 @@ In order to evaluate how funny a tweet is, we train language models on two datas
 the tweet data and the news data. 
 Tweets that are more probable according to the tweet data language model 
 are ranked as being funnier. However, tweets
-that are have a lower probability according to the news language 
+that have a lower probability according to the news language 
 model are considered the funnier since they are the least like the 
 (unfunny) news corpus. We relied on both
 bigrams and trigrams when training our models. 
 
 We use KenLM ~\cite{Heafield-estimate} as our language modeling tool. Language models are estimated using modified Kneser-Ney smoothing 
-without pruning. KenLM also implements a back-off technique so if an N-gram is not found KenLM applies the lower order N-gram's probability 
+without pruning. KenLM also implements a back-off technique so if an N-gram is not found, KenLM applies the lower order N-gram's probability 
 along with its back-off weights. 
 
 \section{Method}
@@ -249,7 +249,7 @@ on the tweet language model then they are sorted in ascending order since the
 log probability value closest to 0 indicates the tweet that is most 
 like the (funny) tweets model. 
 However, if the log probability scores are based on the news data then they
-are sorted in descending order since largest value will have the 
+are sorted in descending order since the largest value will have the 
 smallest probability associated with it and is therefore least like
 the (unfunny) news model.
 
@@ -278,11 +278,10 @@ performed better on Subtask B (.887) and the bigram
 language model performed better on Subtask A (.548). We decided to rely
 on trigram language models for the task evaluation since the advantage
 of bigrams on Subtask A was very slight (.548 versus .543). 
-For the news data, tokenization helped to improve the performance of 
-language models. Omitting sentence boundaries, being case sensitive,  
-and tokenizing is the best setting. 
-Trigram performed better considering both 
-tasks under the best setting so we chose to train trigram language  models.
+For the news data, we found that the best setting was to 
+perform tokenization, omit sentence boundaries, and to be case
+sensitive. Given that trigrams performed most effectively in the 
+development stage, we decided to use those during the evaluation. 
 
 Table 3 shows the results of our system during the task evaluation. We submitted
 two runs, one with a trigram language model trained on the tweet data, and another
