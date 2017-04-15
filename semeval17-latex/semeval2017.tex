@@ -9,54 +9,69 @@
 \newcommand\BibTeX{B{\sc ib}\TeX}
 \title{Duluth at SemEval-2017 Task 6:  Language Models in Humor Detection}
 
-\author{Xinru Yan \\
+\author{Xinru Yan \& Ted Pedersen\\
   Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
-  {\tt yanxx418@d.umn.edu} \\\And
-  Ted Pedersen \\
-  Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
-  {\tt tpederse@d.umn.edu} \\}
+  {\tt \{yanxx418,tpederse\}@d.umn.edu}}
 
 \date{}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-This paper describes the Duluth system that participated in SemEval-2017 Task 6 \#HashtagWars: 
-Learning a Sense of Humor. The system participated in Subtask A and Subtask B using N-gram 
-language models, ranking highly in the task evaluation. This paper discusses the results of 
-our system in the development and evaluation stages and from two post-evaluation runs. 
+This paper describes the Duluth system that participated in 
+SemEval-2017 Task 6 \#HashtagWars: 
+Learning a Sense of Humor. The system participated in 
+Subtask A and Subtask B using N-gram 
+language models, ranking highly in the task evaluation. 
+This paper discusses the results of 
+our system in the development and evaluation stages 
+and from two post-evaluation runs. 
 \end{abstract}
 
 \section{Introduction}
-Humor represents human uniqueness and intelligence to some extent and has drawn 
-attention in different research areas such as linguistics, psychology, philosophy and 
-computer science. In computer science, relevant theories derived from those fields 
-have formed a relatively new area of study, \textit{computational humor} 
-(e.g., \cite{Recognizing:Humor:On:Twitter}). Humor has not been addressed broadly in 
-current computational research. Many studies have developed effective systems to 
-generate humor (e.g., \cite{ozbal2012computational}). However, \textit{humor detection} 
-remains a less explored and challenging problem (e.g., \cite{Learning:To:Laugh}, 
-\cite{ShahafHM15}). SemEval-2017 Task 6 \cite{PotashRR17} 
-also focuses on \textit{humor detection} by asking participants to develop systems that 
+Humor is an expression of  human uniqueness and intelligence and has drawn 
+attention in diverse areas such as linguistics, psychology, philosophy and 
+computer science. \textit{Computational humor} draws from all of these 
+fields and is a relatively new area of study. 
+There is some history of systems that are able to generate 
+humor (e.g., \cite{StockS03}, \cite{ozbal2012computational}). 
+However, \textit{humor detection} remains a less explored 
+and challenging problem (e.g., \cite{Learning:To:Laugh}, 
+\cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15}, \cite{MillerG15}). 
+
+SemEval-2017 Task 6 \cite{PotashRR17} 
+also focuses on \textit{humor detection} by asking participants to 
+develop systems that 
 learn a sense of humor from the Comedy Central TV show, 
-\textit{@midnight with Chris Hardwick}. Our system detects humor by training N-gram language models 
-on two different corpora, one consisting of funny tweets provided by the task organizers, and 
+\textit{@midnight with Chris Hardwick}. Our system 
+ranks tweets according to how funny they are
+by training N-gram language models 
+on two different corpora. One consisting of funny tweets 
+provided by the task organizers, and 
 the other on a freely available research corpus of news data. 
 
 \section{Background}
 
-Training \textbf{Language Models} (LMs) is a straightforward way to collect set of rules by 
-utilizing the fact that words do not appear in an arbitrary order, which means we can gain useful information from a word 
-and its neighbors ~\cite{JM}. A statistical language model estimates the probability of a sequence of words or an upcoming 
+Training \textbf{Language Models} (LMs) is a straightforward 
+way to collect a set of rules by 
+utilizing the fact that words do not appear in an arbitrary order; 
+we in fact can gain useful information about a word by knowing 
+the company it keeps ~\cite{Firth57}. A statistical language 
+model estimates the probability of a sequence of words or an upcoming 
 word. 
-An N-gram is a contiguous sequence of N words: a unigram is a single word, a bigram is a two-word sequence, 
+An N-gram is a contiguous sequence of N words: a unigram is a 
+single word, a bigram is a two-word sequence, 
 and a trigram is a three-word sequence. For example, in the tweet 
 \begin{quote}
 tears in Ramen \#SingleLifeIn3Words
 \end{quote}
 ``tears'', ``in'', ``Ramen'' and ``\#SingleLifeIn3Words'' are unigrams; ``tears in'', 
 ``in Ramen'' and ``Ramen \#SingleLifeIn3Words'' 
-are bigrams and ``tears in Ramen'' and ``in Ramen \#SingleLifeIn3Words'' are trigrams.
+are bigrams and ``tears in Ramen'' and ``in Ramen 
+\#SingleLifeIn3Words'' are trigrams.
+
+Note that the funny tweet data consists of tweets like this where 
+each tweet is intended to be a humorous response to the given hashtag.
 
 An N-gram model can predict the next word from a sequence of N-1 previous words.
 A trigram Language Model (LM) predicts the conditional probability of the next word using the following approximation.
@@ -74,13 +89,17 @@ P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
  
 In a study on how phrasing affects memorability ~\cite{hello} take a language model approach to measure the distinctiveness of
 memorable movie quotes. They do this by evaluating a quote with respect to a ``common language'' model built from the newswire sections 
-of the Brown corpus ~\cite{BC}. They find that movie quotes which are less like the ``common language'' are more distinctive and therefore
+of the Brown corpus ~\cite{BC}. They find that movie quotes which are less like  ``common language'' are more distinctive and therefore
 more memorable. The intuition behind our approach is that humor should in some way be memorable or distinct, and so tweets that 
 diverge from a ``common language'' model would be expected to be funnier. 
 
-In order to evaluate how funny a tweet is, we train language models on two datasets: the tweet data and the news data. 
-Tweets that are more probable according to the tweet data language model are ranked as being funnier. However, tweets
-that are have a lower probability according to the news language model are considered the funnier. We relied on both
+In order to evaluate how funny a tweet is, we train language models on two datasets: 
+the tweet data and the news data. 
+Tweets that are more probable according to the tweet data language model 
+are ranked as being funnier. However, tweets
+that are have a lower probability according to the news language 
+model are considered the funnier since they are the least like the 
+(unfunny) news corpus. We relied on both
 bigrams and trigrams when training our models. 
 
 We use KenLM ~\cite{Heafield-estimate} as our language modeling tool. Language models are estimated using modified Kneser-Ney smoothing 
@@ -128,12 +147,9 @@ Pre-processing consists of two steps: filtering and tokenization. The filtering 
 We experimented with various filtering and tokenziation combinations during the development stage to determine the best setting. 
 
 \begin{itemize}
-\item Filtering remove the following elements from the tweets:
-\begin{itemize}
-\item URLs 
-\item Tokens starting with the ``@'' symbol (Twitter user names)
-\item Tokens starting with the ``\#'' symbol (Hashtags)
-\end{itemize}
+\item Filtering removes the following elements from the tweets:
+URLs, tokens starting with the ``@'' symbol (Twitter user names),
+and tokens starting with the ``\#'' symbol (Hashtags). 
 \item Tokenization: Text in all training data was split on white space and punctuation
 \end{itemize}
 
@@ -146,12 +162,19 @@ without considering sentence or tweet boundaries.
 
 \subsection{Tweet Scoring}
 
-After training the N-gram language models, the next step was scoring. For each hashtag file that needed 
-to be evaluated, a logarithm score was assigned to each tweet in the hashtag file based on the trained language model.
-The larger the score, the more probable that tweet was according to the language model. Table 1 shows an example of two 
-scored tweets from hashtag file \textit{Bad\_Job\_In\_5\_Words.tsv} based on the tweet data trigram language model.
-Note that KenLM reports the log of the probability of the N-grams rather than the actual
-probabilities.
+After training the N-gram language models, the next step was scoring. 
+For each hashtag file that needed 
+to be evaluated, the logarithm of the probability 
+was assigned to each tweet in the 
+hashtag file based on the trained language model.
+The larger the probability, the more likely that tweet was according 
+to the language model. Table 1 shows an example of two 
+scored tweets from hashtag file \textit{Bad\_Job\_In\_5\_Words.tsv} 
+based on the tweet data trigram language model.
+Note that KenLM reports the log of the probability of the N-grams 
+rather than the actual probabilities so the value closer to 0 (-19) has
+the higher probability and is 
+associated with the tweet judged to be funnier.
 
 \begin{table*}[h!]
 \centering
@@ -218,7 +241,7 @@ news & bigram & NA & False & False & True & 0.624 & 0.853 \\
 
 \subsection{Tweet Prediction}
 
-The system sort all the tweets for each hashtag and orders them based on their
+The system sorts all the tweets for each hashtag and orders them based on their
 score, where the funniest tweet should be listed first. If the scores are based
 on the tweet language model then they are sorted in descending order since the
 largest value indicates the tweet that is most like the (funny) tweets model. 
@@ -253,7 +276,8 @@ language model performed better on Subtask A (.548). We decided to rely
 on trigram language models for the task evaluation since the advantage
 of bigrams on Subtask A was very slight (.548 versus .543). 
 For the news data, tokenization helped to improve the performance of 
-language models. Omitting sentence boundaries, being case sensitive along with tokenization is the best setting. 
+language models. Omitting sentence boundaries, being case sensitive,  
+and tokenizing is the best setting. 
 Trigram performed better considering both 
 tasks under the best setting so we chose to train trigram language  models.
 
@@ -329,3 +353,4 @@ with sequence data.
 \bibliographystyle{acl_natbib}
 
 \end{document}
+
