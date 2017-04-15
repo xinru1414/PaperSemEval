@@ -49,6 +49,9 @@ by training N-gram language models
 on two different corpora. One consisting of funny tweets 
 provided by the task organizers, and 
 the other on a freely available research corpus of news data. 
+The funny tweet data is made up of tweets that are intended to
+be humorous responses to a hashtag given by host Chris Hardwick
+during the program. 
 
 \section{Background}
 
@@ -70,24 +73,21 @@ tears in Ramen \#SingleLifeIn3Words
 are bigrams and ``tears in Ramen'' and ``in Ramen 
 \#SingleLifeIn3Words'' are trigrams.
 
-Note that the funny tweet data consists of tweets like this where 
-each tweet is intended to be a humorous response to the given hashtag.
-
 An N-gram model can predict the next word from a sequence of N-1 previous words.
-A trigram Language Model (LM) predicts the conditional probability of the next word using the following approximation.
+A trigram Language Model (LM) predicts the conditional probability of the next word using the following approximation:
 
 \begin{equation}
 P(w_n|w_1^{n-1})\approx P(w_n|w_{n-2}, w_{n-1})
 \end{equation}
 
 The assumption that the probability of a word depends only on a small number of previous words 
-is called the \textbf{Markov} assumption ~\cite{markov1954theory}. Given this assumption 
+is called a \textbf{Markov} assumption ~\cite{markov1954theory}. Given this assumption 
 the probability of a sentence can be estimated as follows:
 \begin{equation}
 P(w_1^n)\approx \prod_{k=1}^{n} P(w_k|w_{k-2}, w_{k-1})
 \end{equation}
  
-In a study on how phrasing affects memorability ~\cite{hello} take a language model approach to measure the distinctiveness of
+In a study on how phrasing affects memorability, ~\cite{hello} take a language model approach to measure the distinctiveness of
 memorable movie quotes. They do this by evaluating a quote with respect to a ``common language'' model built from the newswire sections 
 of the Brown corpus ~\cite{BC}. They find that movie quotes which are less like  ``common language'' are more distinctive and therefore
 more memorable. The intuition behind our approach is that humor should in some way be memorable or distinct, and so tweets that 
@@ -108,20 +108,21 @@ along with its back-off weights.
 
 \section{Method}
 
-Our system \footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} estimated tweet probability using N-gram LMs. 
+Our system\footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} estimated tweet probability using N-gram LMs. 
 Specifically, it solved the comparison (Subtask A) and semi-ranking (Subtask B) subtasks in four steps:
 
 \begin{enumerate}
-\item Corpus preparation and pre-processing: Collected all training data into a single file.
+\item Corpus preparation and pre-processing: Collected all training 
+data into a single file.
 Pre-processing included filtering and tokenization.
 \item Language model training: Built N-gram language using KenLM.
-\item Tweet scoring: Computed log probability for each tweet based on trained N-gram 
-language model. 
-\item Tweet prediction: Based on the tweet scores.   
+\item Tweet scoring: Computed log probability for each tweet based 
+on trained N-gram language model. 
+\item Tweet prediction: Based on the log probability scores.   
 
 \begin{itemize}
-\item Subtask A -- Given two tweets, compared them and predicted which one is funnier. 
-\item Subtask B -- Given a set of tweets associated with one hashtag, ranked 
+\item Subtask A -- Given two tweets, compare and predict which one is funnier. 
+\item Subtask B -- Given a set of tweets associated with one hashtag, rank 
 tweets from the funniest to the least funny.
 
 \end{itemize}
@@ -132,7 +133,7 @@ tweets from the funniest to the least funny.
 The tweet data was provided by the task organizers. It consists of 106 hashtag files made up of about 21,000 tokens. The hashtag files
 were further divided into a development set \textit{trial\_dir} of 6 hashtags and a training set of 100 hashtags \textit{train\_dir}. 
 We also obtained 6.2 GB of English news data with about two million tokens from the News 
-Commentary Corpus and the News Crawl Corpus from 2008, 2010 and 2011 \footnote{http://www.statmt.org/wmt11/featured-translation-task.html}.   
+Commentary Corpus and the News Crawl Corpus from 2008, 2010 and 2011\footnote{http://www.statmt.org/wmt11/featured-translation-task.html}.   
 Each tweet and each sentence from the news data is found on a single line in their respective files.
 
 \subsubsection{Preparation}
@@ -241,13 +242,15 @@ news & bigram & NA & False & False & True & 0.624 & 0.853 \\
 
 \subsection{Tweet Prediction}
 
-The system sorts all the tweets for each hashtag and orders them based on their
+The system sorts all the tweets for each hashtag and orders 
+them based on their log probability
 score, where the funniest tweet should be listed first. If the scores are based
-on the tweet language model then they are sorted in descending order since the
-largest value indicates the tweet that is most like the (funny) tweets model. 
-However,
-if the scores are based on the news data then the scores are sorted in ascending
-order since the funniest tweet is considered to be the one that is least like 
+on the tweet language model then they are sorted in ascending order since the
+log probability value closest to 0 indicates the tweet that is most 
+like the (funny) tweets model. 
+However, if the log probability scores are based on the news data then they
+are sorted in descending order since largest value will have the 
+smallest probability associated with it and is therefore least like
 the (unfunny) news model.
 
 For Subtask A, the system goes through the sorted list of tweets in a hashtag file
@@ -268,7 +271,7 @@ distance measurements listed in Table 2 and Table 3 are defined by the task orga
 \cite{PotashRR17}. 
 
 Table 2 shows results from the development stage. These results show 
-that for the tweet data data the best setting is to keep 
+that for the tweet data the best setting is to keep 
 the \# and @, omit sentence boundaries, be case sensitive, and ignore 
 tokenization. While using these settings the trigram language model
 performed better on Subtask B (.887) and the bigram 
@@ -319,7 +322,7 @@ The task description paper \cite{PotashRR17}
 reported system by system results for each hashtag. 
 We were somewhat surprised to note that our 
 performance on the hashtag file 
-\textit{BreakUpIn5Words} in the evaluation 
+\textit{\#BreakUpIn5Words} in the evaluation 
 stage was significantly 
 better than any other  system on both Subtask A 
 (with accuracy of 0.913) and Subtask B 
@@ -349,8 +352,101 @@ these networks are capable of
 forming short term memory and may be better suited for dealing 
 with sequence data. 
 
-\bibliography{semeval2017}
-\bibliographystyle{acl_natbib}
+%%\bibliography{semeval2017}
+%%\bibliographystyle{acl_natbib}
+
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Danescu-Niculescu-Mizil et~al.(2012)Danescu-Niculescu-Mizil, Cheng,
+  Kleinberg, and Lee}]{hello}
+Cristian Danescu-Niculescu-Mizil, Justin Cheng, Jon Kleinberg, and Lillian Lee.
+  2012.
+\newblock You had me at hello: How phrasing affects memorability.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics: Long Papers - Volume 1\/}. Association for
+  Computational Linguistics, Stroudsburg, PA, USA, ACL '12, pages 892--901.
+
+\bibitem[{Firth(1968)}]{Firth57}
+J.~Firth. 1968.
+\newblock A synopsis of linguistic theory 1930-1955.
+\newblock In F.~Palmer, editor, {\em Selected Papers of J. R. Firth\/},
+  Longman.
+
+\bibitem[{Heafield et~al.(2013)Heafield, Pouzyrevsky, Clark, and
+  Koehn}]{Heafield-estimate}
+Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn. 2013.
+\newblock Scalable modified {Kneser-Ney} language model estimation.
+\newblock In {\em Proceedings of the 51st Annual Meeting of the Association for
+  Computational Linguistics\/}. Sofia, Bulgaria, pages 690--696.
+
+\bibitem[{Kucera and Francis(1967)}]{BC}
+Henry Kucera and W.~Nelson Francis. 1967.
+\newblock {\em Computational Analysis of Present-day {A}merican {E}nglish\/}.
+\newblock Brown University Press, Providence, RI, USA.
+
+\bibitem[{Markov(2006)}]{markov1954theory}
+A.~A. Markov. 2006.
+\newblock An example of statistical investigation of the text {\it Eugene
+  Onegin} concerning the connection of samples in chains.
+\newblock {\em Science in Context\/} 19(4):591--600.
+
+\bibitem[{Mihalcea and Strapparava(2006)}]{Learning:To:Laugh}
+Rada Mihalcea and Carlo Strapparava. 2006.
+\newblock Learning to laugh (automatically): Computational models for humor
+  recognition.
+\newblock {\em Computational Intelligence\/} 22(2):126--142.
+
+\bibitem[{Mikolov et~al.(2011)Mikolov, Kombrink, Burget, {\v{C}}ernock{\`y},
+  and Khudanpur}]{mikolov2011extensions}
+Tom{\'a}{\v{s}} Mikolov, Stefan Kombrink, Luk{\'a}{\v{s}} Burget, Jan
+  {\v{C}}ernock{\`y}, and Sanjeev Khudanpur. 2011.
+\newblock Extensions of recurrent neural network language model.
+\newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE
+  International Conference on\/}. IEEE, pages 5528--5531.
+
+\bibitem[{Miller and Gurevych(2015)}]{MillerG15}
+Tristan Miller and Iryna Gurevych. 2015.
+\newblock Automatic disambiguation of English puns.
+\newblock In {\em Proceedings of the 53rd Annual Meeting of the Association for
+  Computational Linguistics and the 7th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)\/}. Association for
+  Computational Linguistics, Beijing, China, pages 719--729.
+
+\bibitem[{{\"O}zbal and Strapparava(2012)}]{ozbal2012computational}
+G{\"o}zde {\"O}zbal and Carlo Strapparava. 2012.
+\newblock A computational approach to the automation of creative naming.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics: Long Papers-Volume 1\/}. Association for
+  Computational Linguistics, pages 703--711.
+
+\bibitem[{Potash et~al.(2017)Potash, Romanov, and Rumshisky}]{PotashRR17}
+Peter Potash, Alexey Romanov, and Anna Rumshisky. 2017.
+\newblock {SemEval}-2017 {Task}~6: {\#HashtagWars:} learning a sense of humor.
+\newblock In {\em Proceedings of the 11th International Workshop on Semantic
+  Evaluation (SemEval-2017)\/}. Vancouver, BC.
+
+\bibitem[{Shahaf et~al.(2015)Shahaf, Horvitz, and Mankoff}]{ShahafHM15}
+Dafna Shahaf, Eric Horvitz, and Robert Mankoff. 2015.
+\newblock Inside jokes: Identifying humorous cartoon captions.
+\newblock In {\em Proceedings of the 21th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining\/}. ACM, New York, NY, USA, KDD '15,
+  pages 1065--1074.
+
+\bibitem[{Stock and Strapparava(2003)}]{StockS03}
+Oliviero Stock and Carlo Strapparava. 2003.
+\newblock Getting serious about the development of computational humor.
+\newblock In {\em Proceedings of the Eighteenth International Joint Conference
+  on Artificial Intelligence\/}. Acapulco, pages 59--64.
+
+\bibitem[{Zhang and Liu(2014)}]{Recognizing:Humor:On:Twitter}
+Renxian Zhang and Naishi Liu. 2014.
+\newblock Recognizing humor on Twitter.
+\newblock In {\em Proceedings of the 23rd ACM International Conference on
+  Conference on Information and Knowledge Management\/}. ACM, New York, NY,
+  USA, CIKM '14, pages 889--898.
+
+\end{thebibliography}
 
 \end{document}
 
