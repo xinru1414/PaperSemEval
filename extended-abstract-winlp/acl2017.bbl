@@ -1,6 +1,11 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{Graves et~al.(2014)Graves, Wayne, and Danihelka}]{graves2014neural}
+Alex Graves, Greg Wayne, and Ivo Danihelka. 2014.
+\newblock Neural turing machines.
+\newblock {\em arXiv preprint arXiv:1410.5401\/} .
+
 \bibitem[{Heafield et~al.(2013)Heafield, Pouzyrevsky, Clark, and
   Koehn}]{Heafield-estimate}
 Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn. 2013.
@@ -19,6 +24,14 @@ Rada Mihalcea and Carlo Strapparava. 2006.
   recognition.
 \newblock {\em Computational Intelligence\/} 22(2):126--142.
 
+\bibitem[{Mikolov et~al.(2011)Mikolov, Kombrink, Burget, {\v{C}}ernock{\`y},
+  and Khudanpur}]{mikolov2011extensions}
+Tom{\'a}{\v{s}} Mikolov, Stefan Kombrink, Luk{\'a}{\v{s}} Burget, Jan
+  {\v{C}}ernock{\`y}, and Sanjeev Khudanpur. 2011.
+\newblock Extensions of recurrent neural network language model.
+\newblock In {\em Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE
+  International Conference on\/}. IEEE, pages 5528--5531.
+
 \bibitem[{Miller and Gurevych(2015)}]{MillerG15}
 Tristan Miller and Iryna Gurevych. 2015.
 \newblock Automatic disambiguation of english puns.
@@ -33,6 +46,11 @@ G{\"o}zde {\"O}zbal and Carlo Strapparava. 2012.
 \newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
   Computational Linguistics: Long Papers-Volume 1\/}. Association for
   Computational Linguistics, pages 703--711.
+
+\bibitem[{Potash et~al.(2016)Potash, Romanov, and Rumshisky}]{2016hashtagwars}
+Peter Potash, Alexey Romanov, and Anna Rumshisky. 2016.
+\newblock \# hashtagwars: Learning a sense of humor.
+\newblock {\em arXiv preprint arXiv:1612.03216\/} .
 
 \bibitem[{Potash et~al.(2017)Potash, Romanov, and Rumshisky}]{PotashRR17}
 Peter Potash, Alexey Romanov, and Anna Rumshisky. 2017.

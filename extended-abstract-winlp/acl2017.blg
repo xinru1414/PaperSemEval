@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: acl2017.aux
 The style file: acl_natbib.bst
 Database file #1: acl2017.bib
-You've used 9 entries,
+You've used 12 entries,
             2936 wiz_defined-function locations,
-            660 strings with 6729 characters,
-and the built_in function-call counts, 6620 in all, are:
-= -- 558
-> -- 234
-< -- 12
-+ -- 77
-- -- 66
-* -- 425
-:= -- 908
-add.period$ -- 43
-call.type$ -- 9
-change.case$ -- 80
-chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 544
-empty$ -- 560
-format.name$ -- 105
-if$ -- 1426
+            676 strings with 7291 characters,
+and the built_in function-call counts, 8716 in all, are:
+= -- 719
+> -- 345
+< -- 13
++ -- 113
+- -- 99
+* -- 572
+:= -- 1215
+add.period$ -- 56
+call.type$ -- 12
+change.case$ -- 108
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 713
+empty$ -- 715
+format.name$ -- 147
+if$ -- 1856
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 103
-newline$ -- 49
-num.names$ -- 36
-pop$ -- 230
+missing$ -- 136
+newline$ -- 64
+num.names$ -- 48
+pop$ -- 308
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 81
 quote$ -- 0
-skip$ -- 225
+skip$ -- 290
 stack$ -- 0
-substring$ -- 318
-swap$ -- 276
-text.length$ -- 6
+substring$ -- 391
+swap$ -- 353
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 78
+type$ -- 105
 warning$ -- 0
-while$ -- 47
+while$ -- 59
 width$ -- 0
-write$ -- 127
+write$ -- 165
