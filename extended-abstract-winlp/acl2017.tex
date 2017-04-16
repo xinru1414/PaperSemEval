@@ -32,56 +32,54 @@
 
 \title{Extended Abstract for WiNLP}
 
-\author{First Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\\And
-  Second Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\}
+\author{Xinru Yan \& Ted Pedersen\\
+  Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
+  {\tt \{yanxx418,tpederse\}@d.umn.edu}}
 
 \date{}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-This is an example document for a WiNLP 2017 submission. 
-Submissions must follow the standard two-column format of the ACL 2017 proceedings and they must be submitted as a PDF file. Authors should use the style files from the conference web site (\url{http://acl2017.org/calls/papers/}).
-All submissions are limited to 2 pages of content, with any number of additional pages allowed for references.
-The deadline for submission is 11:59pm Pacific Standard Time on April 21, 2017. Submission will be electronic using the paper submission web page at \url{https://www.softconf.com/acl2017/winlp}.
-
-Submissions will be peer reviewed in the double-blind format. Abstracts will be evaluated on relevance to the community; the presentation format (talk or poster) will be decided based on scientific merit and potential interest to a broad audience.
-
-As our goal is to highlight contribution to the community from women and underrepresented minorities, we will consider anonymized 2-page abstracts of papers that were submitted to other venues or published elsewhere in the past year (i.e. after Jan 1st, 2016), though authors must indicate this at submission time.
-
-The rest of the document contains placeholder text.
+Humor represents one of the most unique and intelligent activities that define humans. Our research focuses on humor detection by using a variety of methods in order to learn a sense of humor. So far we have developed system Duluth using N-gram language models to recognize humorous tweets, which participated in SemEval-2017 Task 6 and ranked highly in the task evaluation. This paper presents the current work of our research along with promising results, as well as possible future work.
 \end{abstract}
 
-
 \section{Introduction}
+Humor is considered to be a human-only trait and one of the most amusing and mystifying human activities. It enters the domain of philosophy, sociology, psychology, linguistics and computer science. With the increasing development of Artificial Intelligence(AI), Machine Learning(ML) and computational linguistics, \textit{Computational humor} has found its way to numerous studies. Humor generation has been a prevailing focus of computational humor (e.g., \cite{StockS03}, \cite{ozbal2012computational}). However, \textit{humor detection} remains a less explored and challenging problem (e.g., \cite{Learning:To:Laugh}, \cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15}, \cite{MillerG15}). In our research, we implement systems that try to utilize and combine diverse methods to recognize humor better.    
 
-\blindtext[1] \cite{Aho:72,Chandra:81,Gusfield:97,APA:83,ACM:83}
+To get started and build a solid foundation of our work, we choose to use N-gram Language Models (LMs) first to tackle the problem. The idea of using LMs is to learn a sense of humor by gaining useful information from a word and its neighbors \cite{JM}. Our research is also associated with the SemEval-2017 Task6 \#HashtagWars: Learning a Sense of Humor \cite{PotashRR17}. The task aims to characterize the sense of humor of a particular source consisting of humorous tweets submitted to a comedy show \textit{@midnight}. There are two subtasks involved: Pairwise Comparison (Subtask A) and Semi-ranking (Subtask B). Our system ranks tweets based on how funny they are by training N-gram LMs on two different corpora, the funny tweets corpus which is provided by the task and the news corpus which is freely available for research. 
 
-Our contributions are as follows:
-\blinditemize
+In order to evaluate how funny a tweet is, we train language models on the tweet data and the news data respectively. Tweets that have a higher probability according to the tweet data language model 
+are ranked as being funnier. However, tweets that are less probable according to the news language 
+model are considered the funnier since they are the least like the (unfunny) news corpus. We rely on both bigrams and trigrams when training our models. We use KenLM \cite{Heafield-estimate} as our language modeling tool with modified Kneser-Ney smoothing and back-off technique.
 
 \section{Method}
-
-\blindmathtrue
-\blindtext[4] \cite{APA:83,ACM:83}
-\blindmathfalse
-
+Our system Duluth \footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} estimated tweet probability using N-gram LMs. First, our system combined all training data into one single file with data pre-processing steps including filtering and tokenization. Second, the system built N-gram language model using KenLM. Then the system computed log probability for each tweet based on the trained N-gram language model. Last but the least is the tweet prediction: for Subtask A, given two tweets, the system predicted which one is funnier according to their probability scores; for Subtask B, given a set of tweets associated with one hashtag, the system ranked tweets from the funniest to the least funny according to their probability scores. 
+Note that the system went through these steps on both training datasets respectively.
 
 \section{Results}
 
-\blindtext[2]
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.7cm}|}
+\hline
+DataSet & N-gram & Subtask A Accuracy & Subtask B Distance \\
+\hline
+\textbf{tweets} & \textbf{trigram} & \textbf{0.397} & \textbf{0.967} \\
+\hline
+tweets & bigram & 0.406 & 0.944 \\
+\hline
+\textbf{news} & \textbf{trigram} & \textbf{0.627} & \textbf{0.872} \\
+\hline
+news & bigram & 0.624 & 0.853 \\
+\hline
+\end{tabular}
+\caption{Evaluation results (bold) and post-evaluation results based on \textit{evaluation\_dir} data. The trigram LM trained on the news data ranked 4th place on Subtask A and 1st place on Subtask B.}
+\end{center}
+\end{table}
 
-\section{Conclusion}
+\section{Discussion and Future Works}
 
-\blindtext[2.5]
 
 
 % include your own bib file like this:
