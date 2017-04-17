@@ -4,9 +4,6 @@ all: open
 
 build: clean
 	xelatex $(name).tex
-	bibtex $(name)
-	xelatex $(name).tex
-	xelatex $(name).tex
 
 OS := $(shell uname)
 ifeq ($(OS),Darwin)
