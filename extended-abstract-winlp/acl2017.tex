@@ -32,57 +32,64 @@
 
 \title{Extended Abstract for WiNLP}
 
-\author{First Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\\And
-  Second Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\}
+\author{Xinru Yan \& Ted Pedersen\\
+  Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
+  {\tt \{yanxx418,tpederse\}@d.umn.edu}}
 
 \date{}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-This is an example document for a WiNLP 2017 submission. 
-Submissions must follow the standard two-column format of the ACL 2017 proceedings and they must be submitted as a PDF file. Authors should use the style files from the conference web site (\url{http://acl2017.org/calls/papers/}).
-All submissions are limited to 2 pages of content, with any number of additional pages allowed for references.
-The deadline for submission is 11:59pm Pacific Standard Time on April 21, 2017. Submission will be electronic using the paper submission web page at \url{https://www.softconf.com/acl2017/winlp}.
-
-Submissions will be peer reviewed in the double-blind format. Abstracts will be evaluated on relevance to the community; the presentation format (talk or poster) will be decided based on scientific merit and potential interest to a broad audience.
-
-As our goal is to highlight contribution to the community from women and underrepresented minorities, we will consider anonymized 2-page abstracts of papers that were submitted to other venues or published elsewhere in the past year (i.e. after Jan 1st, 2016), though authors must indicate this at submission time.
-
-The rest of the document contains placeholder text.
+Humor represents one of the most unique and intelligent activities that define humans. Our research focuses on humor detection by using a variety of methods in order to learn a sense of humor. So far we have developed system Duluth using N-gram language models to recognize humorous tweets, which participated in SemEval-2017 Task 6 and ranked highly in the task evaluation. This paper presents the current work of our research along with promising results, as well as possible future work.
 \end{abstract}
 
-
 \section{Introduction}
+Humor is considered to be a human-only trait and one of the most amusing and mystifying human activities. It enters the domain of philosophy, sociology, psychology, linguistics and computer science. With the increasing development of Artificial Intelligence(AI), Machine Learning(ML) and computational linguistics, \textit{Computational humor} has found its way to numerous studies. Humor generation has been a prevailing focus of computational humor (e.g., \cite{StockS03}, \cite{ozbal2012computational}). However, \textit{humor detection} remains a less explored and challenging problem (e.g., \cite{Learning:To:Laugh}, \cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15}, \cite{MillerG15}). In our research, we implement systems that try to utilize and combine diverse methods to recognize humor better.    
 
-\blindtext[1] \cite{Aho:72,Chandra:81,Gusfield:97,APA:83,ACM:83}
+To get started and build a solid foundation of our work, we choose to use N-gram Language Models (LMs) first to tackle the problem. The idea of using language model is to learn a sense of humor by gaining useful information from a word and its neighbors \cite{JM}. Our research is also associated with the SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor \cite{PotashRR17}. The task aims to characterize the sense of humor of a particular source consisting of humorous tweets submitted to a comedy show \textit{@midnight}. There are two subtasks involved: Pairwise Comparison (Subtask A) and Semi-ranking (Subtask B). Our system ranks tweets based on how funny they are by training N-gram LMs on two different corpora, the funny tweets corpus which is provided by the task and the news corpus which is freely available for research. 
 
-Our contributions are as follows:
-\blinditemize
+In order to evaluate how funny a tweet is, we train language models on the tweet data and the news data respectively. Tweets that have a higher probability according to the tweet data language model are ranked as being funnier. However, tweets that are less probable according to the news language model are considered the funnier since they are the least like the (unfunny) news corpus. We rely on both bigrams and trigrams when training our models. We use KenLM \cite{Heafield-estimate} as our language modeling tool with modified Kneser-Ney smoothing and back-off technique.
 
 \section{Method}
-
-\blindmathtrue
-\blindtext[4] \cite{APA:83,ACM:83}
-\blindmathfalse
-
+Our system Duluth \footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} estimated tweet probability using N-gram LMs. First, our system combined all training data into one single file with data pre-processing steps including filtering and tokenization. Second, the system built N-gram language model using KenLM. Then the system computed log probability for each tweet based on the trained N-gram language model. Last but the least is the tweet prediction: for Subtask A, given two tweets, the system predicted which one is funnier according to their probability scores; for Subtask B, given a set of tweets associated with one hashtag, the system ranked tweets from the funniest to the least funny according to their probability scores. 
+Note that the system went through these steps on both training datasets respectively.
 
 \section{Results}
+In this section we present the results by using N-gram language model approach. We include results based on language models trained on both datasets using bigram and trigram. Note that the accuracy and the distance measurements listed are defined by the task organizers 
+\cite{PotashRR17}. For Subtask A, higher accuracy score represents better system performance. However for Subtask B, lower distance score means the system works more effective.
 
-\blindtext[2]
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.7cm}|}
+\hline
+DataSet & N-gram & Subtask A Accuracy & Subtask B Distance \\
+\hline
+tweets & trigram & 0.397 & 0.967 \\
+\hline
+tweets & bigram & 0.406 & 0.944 \\
+\hline
+news & trigram & 0.627 & 0.872 \\
+\hline
+news & bigram & 0.624 & 0.853 \\
+\hline
+\end{tabular}
+\caption{Results based on bigram and trigram LMs on both datasets. The trigram LM trained on the news data ranked 4th place on Subtask A and 1st place on Subtask B during the SemEval task evaluation.}
+\end{center}
+\end{table}
+Results show that when comparing datasets, models trained on the news data had a significant advantage over models trained on the tweets data. Moreover, generally speaking bigram models performed slightly better than trigram models on both datasets. The results also show that our system had a better performance on Subtask A over Subtask B.
 
-\section{Conclusion}
+\section{Discussion and Future Works}
 
-\blindtext[2.5]
+Our system performed well in SemEval-2017 Task 6, which indicates that simple and straightforward methods such as language model approach could be suitable for hard tasks like humor detection. Going forward, language models certainly could be capable of capturing and representing humor in a more comprehensive manor with more complex implementations. It represents a promising start of our research.
 
+We relied on bigram and trigram language models considering the nature of tweets. They are often short and concise, carrying information within few words. The subtle advantage of bigram language models over trigram language models suggests that moving forward we should consider to use both unigram and character--level language models. 
+
+Moreover, we believe that the significant advantage of the news data over the tweet data is caused by the difference in quantity between corpora. The tweet data was significantly smaller than the news data. In the future we intend to collect more tweet data, especially the ones participating the \#HashtagWars. We also plan to experiment on cutting the amount of news data and then build the models to see how the results compare.
+
+Our system performed much better on Subtask A comparing to Subtask B, which reveals that the semi-ranking task is inherently more sophisticated than the pair-wise comparison task. It also suggests that the language models we used are weak when it comes to a more complicated situation. Going forward we should pay extra attention on developing systems that handle Subtask B better.
+
+Last but not the least, although our system performed well for the task, there is evidence showing that neural network models can out perform traditional back-off N-gram language models \cite{mikolov2011extensions}. In the future we would like to experiment deep learning methods such as Long Short Term Memory (LSTM) neural networks on language models since these networks are capable of forming short term memory and may be better suited for dealing with sequence data. Furthermore, in their work of learning a sense of humor, \cite{2016hashtagwars} pointed out that external knowledge such as movie names and book tiles is crucial for this task in some cases in order to judge if a tweet is funny responding to a certain hashtag. One innovative way of interacting with external knowledge is to implement a Neural Turing Machine \cite{graves2014neural}. In the future we intend to look into approaches of making use of external resources to improve our system performance.
 
 % include your own bib file like this:
 %\bibliographystyle{acl}

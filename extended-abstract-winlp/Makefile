@@ -1,8 +1,11 @@
-name = semeval2017
+name = acl2017
 
 all: open
 
 build: clean
+	xelatex $(name).tex
+	bibtex $(name)
+	xelatex $(name).tex
 	xelatex $(name).tex
 
 OS := $(shell uname)
