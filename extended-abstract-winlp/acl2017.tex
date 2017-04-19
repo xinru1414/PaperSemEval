@@ -1,15 +1,3 @@
-%
-% File acl2017.tex
-%
-%% Based on the style files for ACL-2015, with some improvements
-%%  taken from the NAACL-2016 style
-%% Based on the style files for ACL-2014, which were, in turn,
-%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
-%% EACL-2009, IJCNLP-2008...
-%% Based on the style files for EACL 2006 by 
-%%e.agirre@ehu.es or Sergi.Balari@uab.es
-%% and that of ACL 08 by Joakim Nivre and Noah Smith
-
 \documentclass[11pt,a4paper]{article}
 \usepackage[hyperref]{acl2017}
 \usepackage{times}
@@ -22,15 +10,9 @@
 %\aclfinalcopy % Uncomment this line for the final submission
 %\def\aclpaperid{***} %  Enter the acl Paper ID here
 
-%\setlength\titlebox{5cm}
-% You can expand the titlebox if you need extra space
-% to show all the authors. Please do not make the titlebox
-% smaller than 5cm (the original size); we will check this
-% in the camera-ready version and ask you to change it back.
-
 \newcommand\BibTeX{B{\sc ib}\TeX}
 
-\title{Extended Abstract for WiNLP}
+\title{Who's to say what's funny? A computer using Language Models and Deep Learning, that's who!}
 
 \author{Xinru Yan \& Ted Pedersen\\
   Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
@@ -41,22 +23,87 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Humor represents one of the most unique and intelligent activities that define humans. Our research addresses humor detection task by using a variety of methods with the focus on the continuous and subjective nature of humor based on a particular humorous Twitter dataset, instead of treating it as a binary classification task. So far we have applied language model approach to this problem. This paper presents the current work of our research along with promising results, as well as possible future work.
+Humor is a defining characteristic of human beings. 
+Our goal is to develop methods that automatically 
+detect humorous statements and rank them on a 
+continuous scale. In this paper we report on  results 
+using a Language Model approach, and outline our
+plans for using methods from Deep Learning.
 \end{abstract}
 
 \section{Introduction}
-Humor is considered to be a human-only trait and one of the most amusing and mystifying human activities. It enters the domain of philosophy, sociology, psychology, linguistics and computer science. With the increasing development of Artificial Intelligence(AI), Machine Learning(ML) and computational linguistics, \textit{Computational humor} has found its way to numerous studies. Humor generation and humor detection have been the prevailing focus of computational humor. Researchers have developed well working systems to produce humor (e.g., \cite{StockS03}, \cite{ozbal2012computational}). However, \textit{humor detection} remains a less explored and challenging problem. 
+\textit{Computational humor} is an emerging area of 
+research that ties together ideas from psychology, 
+linguistics, and cognitive science. 
+\textit{Humor generation} is the problem of automatically
+creating humorous statements 
+(e.g., \cite{StockS03}, \cite{ozbal2012computational})
+while \textit{humor detection} is concerned with identifying
+humor in text, and is sometimes treated as 
+a binary classification problem where the goal is to
+decide if some input is humorous or not 
+(e.g., \cite{Learning:To:Laugh}, 
+\cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15},
+\cite{MillerG15}). However, our interest is more in 
+the continuous and subjective nature of humor. 
 
-Most studies have treated humor detection as a binary classification problem, which is to classify whether a piece of data is humorous (e.g., \cite{Learning:To:Laugh}, \cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15}, \cite{MillerG15}). Although the binary classification technique is an applicable approach, it ignores the continuous and subjective nature of humor. 
+In order to account for the subjective nature of humor,
+we learn a sense of humor from a dataset of tweets geared
+towards a particular style of humor \cite{2016hashtagwars}. 
+This data consists of humorous tweets which have been
+submitted in response to hashtags given during the Comedy
+Central TV show \textit{@midnight with Chris Hardwick}.
+To represent the continuous aspect of humor (where not all
+funny jokes are equally amusing), we focus on using Language
+Models and methods from Deep Learning that allow for the
+ranking of potentially humorous statements relative to 
+each other. 
 
-In our research, we specifically take these factors into account when we choose methods and develop systems to detect humor. In order to address the subjective characteristic of humor, we focus on learning a sense of humor from a particular tweet dataset constructed by Potash et al \cite{2016hashtagwars}, which consists of humorous tweets submitted to a comedy show \textit{@midnight}. To represent the continuous trait of humor, we use methods that rank tweets based on their humorous level rather than classifying whether each tweet is humorous.   
- 
 \section{Language Models}
-We chose traditional N-gram Language Models (LMs) as a starting point of our research for two reasons: First, training N-gram LMs allows us to detect humor by learning a sense of humor from a word and its neighbors in a tweet. Additionally, language model approach is suitable to represent the continuous nature of humor considering its ability of ranking tweets based on the probability score it computes for each tweet. Our research is associated with the SemEval-2017 Task 6 \#HashtagWars: Learning a Sense of Humor \cite{PotashRR17} since its purpose corresponds to ours. There are two subtasks involved: Pairwise Comparison (Subtask A) and Semi-ranking (Subtask B). More details about the task refers to \cite{PotashRR17}. 
 
-In the SemEval task, we developed system Duluth \footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} to estimate tweet probability using N-gram LMs. Our system ranked tweets based on how funny they are by training N-gram LMs on two different datasets: the funny tweet data provided by the task and the news data which is freely available for research \footnote{http://www.statmt.org/wmt11/featured-translation-task.html}. Tweets that have a higher probability according to the tweet data language model are ranked as being funnier. However, tweets that are less probable according to the news language model are considered the funnier since they are the least like the (unfunny) news corpus. We relied on both bigrams and trigrams when training our models considering tweets' concise and short nature. KenLM \cite{Heafield-estimate} was used as our language modeling tool, with modified Kneser-Ney smoothing and back-off technique. More details about our system refers to \cite{XT}.
+We start with traditional Ngram language models for two reasons: 
+\begin{enumerate}
+\item Ngram language models can be customized to a particular kind of 
+humor by using examples of that as the training data for the model, and
+\item Ngram language models provide a probability value for each
+input they are given, thus making it possible to rank statements
+relative to each other.  
+\end{enumerate}
 
-Table 1 shows our results based on LMs trained on both datasets using bigram and trigram. Note that the accuracy and the distance measurements listed are defined by the task organizers \cite{PotashRR17}. For Subtask A, higher accuracy score represents better system performance; for Subtask B, lower distance score means the system works more effective.
+We began this research by participating in SemEval-2017 Task 6 
+\#HashtagWars: Learning a Sense of Humor \cite{PotashRR17}. This included
+two subtasks : Pairwise Comparison (Subtask A) and Semi-ranking 
+(Subtask B). Pairwise comparison asks a system to choose the funnier of
+two tweets, while semi-ranking requires that 10 tweets be placed in
+three categories (most funny, funny, less funny). 
+
+%% submission should be anonymous, so anything that gives us away should
+% be kept out til the final version
+
+%%The Duluth system
+%%\footnote{https://xinru1414.github.io/HumorDetection-SemEval2017-Task6/} 
+Our system
+estimated tweet probabilities using Ngram language models.
+%% \cite{XT}. 
+We created models
+from two different data sets - a collection of funny tweets from the @midnight
+program, and a corpus of news data that is freely available for 
+research\footnote{http://www.statmt.org/wmt11/featured-translation-task.html}. 
+We scored tweets using each model. Tweets that have a higher probability 
+when using the funny tweet model were considered funnier. However, tweets 
+that have a lower probability according to the news language model 
+are viewed as being funnier since they are least like the (unfunny) news corpus.
+We took a fairly standard approach to language modeling and used bigrams 
+and trigrams as features in the model. We used KenLM \cite{Heafield-estimate} as our 
+language modeling too, and used modified Kneser-Ney smoothing and back-off techniques. 
+More details about our system refers to
+
+Table 1 shows our results for both data sets when trained on 
+bigrams and trigrams. The accuracy and the distance measures
+are defined by the task organizers \cite{PotashRR17}. We seek 
+high accuracy in picking the funnier tweet (subtask A) and low
+distance (from the gold standard) in organizing the tweets into 
+categories (subtask B). 
 
 \begin{table}[h]
 \begin{center}
@@ -73,25 +120,74 @@ news & trigram & 0.627 & 0.872 \\
 news & bigram & 0.624 & 0.853 \\
 \hline
 \end{tabular}
-\caption{Results based on bigram and trigram LMs on both datasets. The trigram LM trained on the news data ranked 4th place on Subtask A and 1st place on Subtask B during the SemEval task evaluation.}
+\caption{Experimental results}
 \end{center}
 \end{table}
 
-From the results we can tell that: LMs trained on the news data had a significant advantage over models trained on the tweets data; Bigram LMs performed slightly better than trigram LMs on both datasets; Our system had a better performance on Subtask A over B.
+These results show that the trigram model trained on the news data
+has a significant advantage over the tweets data. Bigram language
+models performed slightly better than trigram models on both data
+sets. In the official evaluation of SemEval-2017 Task 6 our most
+effective method was trigram language models trained on the news
+data - this placed fourth in Subtask A and first in Subtask B.  
 
-We believe that the significant advantage of the news data over the tweet data is caused by the difference in quantity between corpora. The tweet data was significantly smaller than the news data. In the future we intend to collect more tweet data, especially the ones participating the \#HashtagWars. We also plan to experiment on cutting the amount of news data and then build the models to see how the results compare.
+We believe that the significant advantage of the news data over 
+the tweet data is caused by the difference in quantity between 
+corpora. The tweet data only consisted of approximately 21,000 tweets,
+whereas the news data totals approximately 6.2 GB of text.
+In the future we intend to collect more tweet data, especially those 
+participating in the ongoing \#HashtagWars staged nightly by @midnight. 
+We also plan to experiment with equal amounts of tweet data and
+news data, to see if one has an inherent advantage over the other.
 
-Our system performed much better on Subtask A comparing to B, which reveals that the semi-ranking task has a higher requirement on the system to represent the continuous nature of humor comparing to the pair-wise comparison.
+Finally, our language models performed better on subtask A, the pairwise
+comparison, suggesting that the ranking problem is more demanding
+and will require further development. To that end we are considering the
+use of neural network and Deep Learning approaches, which we will 
+discuss in the following section.
 
 \section{Deep Learning}
-Our system performed well in the SemEval task, confirming the ability of language models to detect humor with focusing on its continuous and subjective nature. Going forward, language models certainly can characterize humor in a more comprehensive way with more complex implementations.
 
-Recently, studies have shown that Recurrent Neural Networks (RNN) such as LSTM neural networks are exceptionally powerful in language modeling based on its ability to take into account of all preceding words over a word sequence \cite{LSTM1} \cite{LSTM2}. Also, in their work of learning a sense of humor, \cite{2016hashtagwars} points out that due to the high portion of out of vocabulary (OOV) words generated by puns in the humorous tweet data, character-level Constitutional Neural Networks (CNN) model would be more suitable for capturing the single-token puns comparing to token level models. In addition, \cite{CNN}'s study proves that character-level neural language models outperform state-of-art word-level neural language models. Moving forward, considering the promising future of neural networks, we would like to build a character-level neural language model (NLM) which relies on both LSTM RNN and character-level CNN to improve our current system performance.
+Our system performed well in the SemEval task, confirming the ability 
+of language models to detect humor with focusing on its continuous 
+and subjective nature. Going forward, language models certainly 
+can characterize humor in a more comprehensive way with more 
+complex implementations.
 
-Last but not the least, \cite{2016hashtagwars} states that external knowledge is crucial in order to detecting humor from the tweet dataset based on its nature. In the future we intend to make use of external knowledge in the NLM in possibly two ways: With a deeper understanding of what kinds of external knowledge are the most useful such as movie and book titles, celebrity and song names, one is to incorporate them as features in the NLM; The other is to combine the NLM with a Neural Turing Machine (NTM) \cite{graves2014neural}, which is particularly designed for interacting with external interfaces, with a profound and solid study of NTM.
+Recently, studies have shown that Recurrent Neural Networks 
+(RNN) such as LSTM neural networks are exceptionally powerful 
+in language modeling based on its ability to take into account 
+of all preceding words over a word sequence \cite{LSTM1} 
+\cite{LSTM2}. Also, in their work of learning a sense of humor, 
+\cite{2016hashtagwars} points out that due to the high portion 
+of out of vocabulary (OOV) words generated by puns in the 
+humorous tweet data, character-level Constitutional Neural 
+Networks (CNN) model would be more suitable for capturing the 
+single-token puns comparing to token level models. In addition, 
+\cite{CNN}'s study proves that character-level neural language 
+models outperform state-of-art word-level neural language 
+models. Moving forward, considering the promising future of 
+neural networks, we would like to build a character-level neural 
+language model (NLM) which relies on both LSTM RNN and character-level 
+CNN to improve our current system performance.
+
+Last but not the least, \cite{2016hashtagwars} states that 
+external knowledge is crucial in order to detecting humor from 
+the tweet dataset based on its nature. In the future we intend 
+to make use of external knowledge in the NLM in possibly two 
+ways: With a deeper understanding of what kinds of external 
+knowledge are the most useful such as movie and book titles, 
+celebrity and song names, one is to incorporate them as features 
+in the NLM; The other is to combine the NLM with a Neural 
+Turing Machine (NTM) \cite{graves2014neural}, which is particularly 
+designed for interacting with external interfaces, with a 
+profound and solid study of NTM.
 
 \section{Conclusion}
-Humor has not been addressed broadly in current computational research area. Our research focuses on humor detection, developing systems that can capture its continuous and subjective nature. 
+
+Humor has not been addressed broadly in current computational 
+research area. Our research focuses on humor detection, developing 
+systems that can capture its continuous and subjective nature. 
  
 % include your own bib file like this:
 %\bibliographystyle{acl}
