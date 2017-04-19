@@ -1,0 +1,91 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Graves et~al.(2014)Graves, Wayne, and Danihelka}]{graves2014neural}
+Alex Graves, Greg Wayne, and Ivo Danihelka. 2014.
+\newblock Neural turing machines.
+\newblock {\em arXiv preprint arXiv:1410.5401\/} .
+
+\bibitem[{Heafield et~al.(2013)Heafield, Pouzyrevsky, Clark, and
+  Koehn}]{Heafield-estimate}
+Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn. 2013.
+\newblock Scalable modified {Kneser-Ney} language model estimation.
+\newblock In {\em Proceedings of the 51st Annual Meeting of the Association for
+  Computational Linguistics\/}. Sofia, Bulgaria, pages 690--696.
+
+\bibitem[{Kim et~al.(2015)Kim, Jernite, Sontag, and Rush}]{CNN}
+Yoon Kim, Yacine Jernite, David Sontag, and Alexander~M Rush. 2015.
+\newblock Character-aware neural language models.
+\newblock {\em arXiv preprint arXiv:1508.06615\/} .
+
+\bibitem[{Mihalcea and Strapparava(2006)}]{Learning:To:Laugh}
+Rada Mihalcea and Carlo Strapparava. 2006.
+\newblock Learning to laugh (automatically): Computational models for humor
+  recognition.
+\newblock {\em Computational Intelligence\/} 22(2):126--142.
+
+\bibitem[{Miller and Gurevych(2015)}]{MillerG15}
+Tristan Miller and Iryna Gurevych. 2015.
+\newblock Automatic disambiguation of english puns.
+\newblock In {\em Proceedings of the 53rd Annual Meeting of the Association for
+  Computational Linguistics and the 7th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)\/}. Association for
+  Computational Linguistics, Beijing, China, pages 719--729.
+
+\bibitem[{{\"O}zbal and Strapparava(2012)}]{ozbal2012computational}
+G{\"o}zde {\"O}zbal and Carlo Strapparava. 2012.
+\newblock A computational approach to the automation of creative naming.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics: Long Papers-Volume 1\/}. Association for
+  Computational Linguistics, pages 703--711.
+
+\bibitem[{Potash et~al.(2016)Potash, Romanov, and Rumshisky}]{2016hashtagwars}
+Peter Potash, Alexey Romanov, and Anna Rumshisky. 2016.
+\newblock \# hashtagwars: Learning a sense of humor.
+\newblock {\em arXiv preprint arXiv:1612.03216\/} .
+
+\bibitem[{Potash et~al.(2017)Potash, Romanov, and Rumshisky}]{PotashRR17}
+Peter Potash, Alexey Romanov, and Anna Rumshisky. 2017.
+\newblock {SemEval}-2017 {Task}~6: {\#HashtagWars:} learning a sense of humor.
+\newblock In {\em Proceedings of the 11th International Workshop on Semantic
+  Evaluation (SemEval-2017)\/}. Vancouver, BC.
+
+\bibitem[{Shahaf et~al.(2015)Shahaf, Horvitz, and Mankoff}]{ShahafHM15}
+Dafna Shahaf, Eric Horvitz, and Robert Mankoff. 2015.
+\newblock Inside jokes: Identifying humorous cartoon captions.
+\newblock In {\em Proceedings of the 21th ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining\/}. ACM, New York, NY, USA, KDD '15,
+  pages 1065--1074.
+
+\bibitem[{Stock and Strapparava(2003)}]{StockS03}
+Oliviero Stock and Carlo Strapparava. 2003.
+\newblock Getting serious about the development of computational humor.
+\newblock In {\em Proceedings of the Eighteenth International Joint Conference
+  on Artificial Intelligence\/}. Acapulco, pages 59--64.
+
+\bibitem[{Sundermeyer et~al.(2015)Sundermeyer, Ney, and Schl{\"u}ter}]{LSTM2}
+Martin Sundermeyer, Hermann Ney, and Ralf Schl{\"u}ter. 2015.
+\newblock From feedforward to recurrent lstm neural networks for language
+  modeling.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech and Language Processing
+  (TASLP)\/} 23(3):517--529.
+
+\bibitem[{Sundermeyer et~al.(2012)Sundermeyer, Schl{\"u}ter, and Ney}]{LSTM1}
+Martin Sundermeyer, Ralf Schl{\"u}ter, and Hermann Ney. 2012.
+\newblock Lstm neural networks for language modeling.
+\newblock In {\em Interspeech\/}. pages 194--197.
+
+\bibitem[{Yan and Pedersen(2017)}]{XT}
+Xinru Yan and Ted Pedersen. 2017.
+\newblock Duluth at semeval-2017 task 6: Language models in humor detection.
+\newblock In {\em Proceedings of the 11th International Workshop on Semantic
+  Evaluation (SemEval-2017)\/}. Vancouver, BC.
+
+\bibitem[{Zhang and Liu(2014)}]{Recognizing:Humor:On:Twitter}
+Renxian Zhang and Naishi Liu. 2014.
+\newblock Recognizing humor on twitter.
+\newblock In {\em Proceedings of the 23rd ACM International Conference on
+  Conference on Information and Knowledge Management\/}. ACM, New York, NY,
+  USA, CIKM '14, pages 889--898.
+
+\end{thebibliography}
