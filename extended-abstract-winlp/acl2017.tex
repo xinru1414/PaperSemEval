@@ -26,7 +26,7 @@
 Humor is a defining characteristic of human beings. 
 Our goal is to develop methods that automatically 
 detect humorous statements and rank them on a 
-continuous scale. In this paper we report on  results 
+continuous scale. In this paper we report on results 
 using a Language Model approach, and outline our
 plans for using methods from Deep Learning.
 \end{abstract}
@@ -37,45 +37,50 @@ research that ties together ideas from psychology,
 linguistics, and cognitive science. 
 \textit{Humor generation} is the problem of automatically
 creating humorous statements 
-(e.g., \cite{StockS03}, \cite{ozbal2012computational})
-while \textit{humor detection} is concerned with identifying
-humor in text, and is sometimes treated as 
-a binary classification problem where the goal is to
-decide if some input is humorous or not 
+(e.g., \cite{StockS03}, \cite{ozbal2012computational}).
+\textit{Humor detection} seeks to identify humor in text, 
+and is sometimes cast as a binary classification problem that 
+decides if some input is humorous or not 
 (e.g., \cite{Learning:To:Laugh}, 
 \cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15},
-\cite{MillerG15}). However, our interest is more in 
-the continuous and subjective nature of humor. 
+\cite{MillerG15}). However, our focus is on  
+the continuous and subjective aspects of humor. 
 
-In order to account for the subjective nature of humor,
-we learn a sense of humor from a dataset of tweets geared
-towards a particular style of humor \cite{2016hashtagwars}. 
+We learn a particular sense of humor from a data set of
+tweets which are geared towards a certain style of humor
+\cite{2016hashtagwars}. 
 This data consists of humorous tweets which have been
-submitted in response to hashtags given during the Comedy
+submitted in response to hashtag prompts provided
+during the Comedy
 Central TV show \textit{@midnight with Chris Hardwick}.
-To represent the continuous aspect of humor (where not all
-funny jokes are equally amusing), we focus on using Language
-Models and methods from Deep Learning that allow for the
-ranking of potentially humorous statements relative to 
+Since not all jokes are equally funny, we use Language
+Models and methods from Deep Learning to allow 
+potentially humorous statements to be ranked relative to 
 each other. 
 
 \section{Language Models}
 
-We start with traditional Ngram language models for two reasons: 
+We used traditional Ngram language models as our first 
+approach for two reasons : 
 \begin{enumerate}
-\item Ngram language models can be customized to a particular kind of 
+\item Ngram language models can learn a certain style of 
 humor by using examples of that as the training data for the model, and
-\item Ngram language models provide a probability value for each
-input they are given, thus making it possible to rank statements
-relative to each other.  
+\item they assign a probability to each input they are given,
+making it possible to rank statements relative to each other.  
 \end{enumerate}
+Thus, Ngram language models make relative rankings 
+of humorous statements
+based on a particular style of humor, thereby accounting for the 
+continuous and subjective nature of humor. 
 
 We began this research by participating in SemEval-2017 Task 6 
 \#HashtagWars: Learning a Sense of Humor \cite{PotashRR17}. This included
 two subtasks : Pairwise Comparison (Subtask A) and Semi-ranking 
 (Subtask B). Pairwise comparison asks a system to choose the funnier of
-two tweets, while semi-ranking requires that 10 tweets be placed in
-three categories (most funny, funny, less funny). 
+two tweets. Semi-ranking requires that each of the tweets
+associated with a particular hashtag be assigned to one of the 
+following categories : top most funny tweet, next nine most funny
+tweets, and all remaining tweets. 
 
 %% submission should be anonymous, so anything that gives us away should
 % be kept out til the final version
@@ -86,54 +91,53 @@ Our system
 estimated tweet probabilities using Ngram language models.
 %% \cite{XT}. 
 We created models
-from two different data sets - a collection of funny tweets from the @midnight
+from two different corpora - a collection of funny tweets from the @midnight
 program, and a corpus of news data that is freely available for 
 research\footnote{http://www.statmt.org/wmt11/featured-translation-task.html}. 
-We scored tweets using each model. Tweets that have a higher probability 
-when using the funny tweet model were considered funnier. However, tweets 
+We scored tweets by assigning them a probability based on each 
+model. Tweets that have a higher probability according to the funny 
+tweet model are considered funnier since they are more like the humorous
+training data. However, tweets 
 that have a lower probability according to the news language model 
-are viewed as being funnier since they are least like the (unfunny) news corpus.
-We took a fairly standard approach to language modeling and used bigrams 
-and trigrams as features in the model. We used KenLM \cite{Heafield-estimate} as our 
-language modeling too, and used modified Kneser-Ney smoothing and back-off techniques. 
-More details about our system refers to
+are viewed as funnier since they are least like the (unfunny) news corpus.
+We took a standard approach to language modeling and used bigrams 
+and trigrams as features in our models. We used KenLM \cite{Heafield-estimate} 
+with modified Kneser-Ney smoothing and a back-off technique as our language 
+modeling tool. 
 
 Table 1 shows our results for both data sets when trained on 
-bigrams and trigrams. The accuracy and the distance measures
+bigrams and trigrams. The accuracy and distance measures
 are defined by the task organizers \cite{PotashRR17}. We seek 
-high accuracy in picking the funnier tweet (subtask A) and low
+high accuracy in picking the funnier tweet (Subtask A) and low
 distance (from the gold standard) in organizing the tweets into 
-categories (subtask B). 
+categories (Subtask B). 
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.7cm}|}
+\begin{tabular}{cccc}
+%%\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.7cm}|p{1.7cm}|}
 \hline
-DataSet & N-gram & Subtask A Accuracy & Subtask B Distance \\
+Data & Ngram & Accuracy (A) & Distance (B) \\
 \hline
 tweets & trigram & 0.397 & 0.967 \\
-\hline
 tweets & bigram & 0.406 & 0.944 \\
-\hline
 news & trigram & 0.627 & 0.872 \\
-\hline
 news & bigram & 0.624 & 0.853 \\
-\hline
 \end{tabular}
 \caption{Experimental results}
 \end{center}
 \end{table}
 
-These results show that the trigram model trained on the news data
-has a significant advantage over the tweets data. Bigram language
-models performed slightly better than trigram models on both data
-sets. In the official evaluation of SemEval-2017 Task 6 our most
-effective method was trigram language models trained on the news
-data - this placed fourth in Subtask A and first in Subtask B.  
+These results show that models trained on the news data
+have a significant advantage over the tweets model, and that bigram
+models performed slightly better than trigrams. We submitted
+trigram models trained on news and tweets to the official evaluation 
+of SemEval-2017 Task 6. The trigram language models trained on
+the news data placed fourth in Subtask A and first in Subtask B.
 
 We believe that the significant advantage of the news data over 
-the tweet data is caused by the difference in quantity between 
-corpora. The tweet data only consisted of approximately 21,000 tweets,
+the tweet data is caused by the much larger quantity of news data
+available. The tweet data only consists of approximately 21,000 tweets,
 whereas the news data totals approximately 6.2 GB of text.
 In the future we intend to collect more tweet data, especially those 
 participating in the ongoing \#HashtagWars staged nightly by @midnight. 
