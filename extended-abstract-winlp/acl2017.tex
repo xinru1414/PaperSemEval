@@ -12,10 +12,13 @@
 
 \newcommand\BibTeX{B{\sc ib}\TeX}
 
-\title{Who's to say what's funny? A computer using Language Models and Deep Learning, that's who!}
+\title{Who's to say what's funny?\\
+A computer using Language Models and Deep Learning, That's Who!}
 
 \author{Xinru Yan \& Ted Pedersen\\
-  Department of Computer Science \\ University of Minnesota Duluth \\ Duluth, MN, 55812 USA \\
+  Department of Computer Science \\ 
+  University of Minnesota Duluth \\ 
+   Duluth, MN, 55812 USA \\
   {\tt \{yanxx418,tpederse\}@d.umn.edu}}
 
 \date{}
@@ -37,18 +40,18 @@ research that ties together ideas from psychology,
 linguistics, and cognitive science. 
 \textit{Humor generation} is the problem of automatically
 creating humorous statements 
-(e.g., \cite{StockS03}, \cite{ozbal2012computational}).
+(e.g., \cite{StockS03}, \cite{OzbalS12}).
 \textit{Humor detection} seeks to identify humor in text, 
 and is sometimes cast as a binary classification problem that 
 decides if some input is humorous or not 
-(e.g., \cite{Learning:To:Laugh}, 
-\cite{Recognizing:Humor:On:Twitter}, \cite{ShahafHM15},
+(e.g., \cite{MihalceaS06}, 
+\cite{ZhangL14}, \cite{ShahafHM15},
 \cite{MillerG15}). However, our focus is on  
 the continuous and subjective aspects of humor. 
 
 We learn a particular sense of humor from a data set of
 tweets which are geared towards a certain style of humor
-\cite{2016hashtagwars}. 
+\cite{PotashRR16}. 
 This data consists of humorous tweets which have been
 submitted in response to hashtag prompts provided
 during the Comedy
@@ -62,12 +65,10 @@ each other.
 
 We used traditional Ngram language models as our first 
 approach for two reasons : 
-\begin{enumerate}
-\item Ngram language models can learn a certain style of 
-humor by using examples of that as the training data for the model, and
-\item they assign a probability to each input they are given,
+First, Ngram language models can learn a certain style of 
+humor by using examples of that as the training data for the model.
+Second, they assign a probability to each input they are given,
 making it possible to rank statements relative to each other.  
-\end{enumerate}
 Thus, Ngram language models make relative rankings 
 of humorous statements
 based on a particular style of humor, thereby accounting for the 
@@ -101,7 +102,7 @@ training data. However, tweets
 that have a lower probability according to the news language model 
 are viewed as funnier since they are least like the (unfunny) news corpus.
 We took a standard approach to language modeling and used bigrams 
-and trigrams as features in our models. We used KenLM \cite{Heafield-estimate} 
+and trigrams as features in our models. We used KenLM \cite{HeafieldPCK13} 
 with modified Kneser-Ney smoothing and a back-off technique as our language 
 modeling tool. 
 
@@ -144,54 +145,69 @@ participating in the ongoing \#HashtagWars staged nightly by @midnight.
 We also plan to experiment with equal amounts of tweet data and
 news data, to see if one has an inherent advantage over the other.
 
-Finally, our language models performed better on subtask A, the pairwise
-comparison, suggesting that the ranking problem is more demanding
-and will require further development. To that end we are considering the
-use of neural network and Deep Learning approaches, which we will 
-discuss in the following section.
-
+Our language models performed better the pairwise comparison, 
+but it's clear that more investigation is needed to improve
+the semi-ranking results. 
+We believe that Deep Learning
+may overcome some of the limits of Ngram language models, and so
+will explore those next. 
 \section{Deep Learning}
 
-Our system performed well in the SemEval task, confirming the ability 
-of language models to detect humor with focusing on its continuous 
-and subjective nature. Going forward, language models certainly 
-can characterize humor in a more comprehensive way with more 
-complex implementations.
+One of the limitations of our language model approach  
+is the large number of out of vocabulary 
+words we will encounter. This problem can't be solved
+by increasing the quantity of training data because
+humor relies on creative and inventive 
+uses of language. For example, puns often include
+invented words, e.g., a singing cat makes beautiful {\textit meowsic}.  
+\cite{PotashRR17} suggests that character--based 
+Convolutional Neural Networks (CNNs) are
+an effective solution for these situations since they are not
+dependent on observing tokens in training data.
+Previous work
+has also shown the CNNs are effective tools for
+language modeling, even in the presence of complex morphology 
+\cite{KimJSR15}. Other recent work has shown that Recurrent
+Neural Networks (RNNs), in particular Long Short--Term Memory
+networks (LSTMs), are effective in a wide range of language
+modeling tasks (e.g., \cite{SundermeyerSN12},\cite{SundermeyeNS15}). 
+This seems to be due to their ability to capture
+long distance dependencies, which is something that traditional language
+models can not do. 
 
-Recently, studies have shown that Recurrent Neural Networks 
-(RNN) such as LSTM neural networks are exceptionally powerful 
-in language modeling based on its ability to take into account 
-of all preceding words over a word sequence \cite{LSTM1} 
-\cite{LSTM2}. Also, in their work of learning a sense of humor, 
-\cite{2016hashtagwars} points out that due to the high portion 
-of out of vocabulary (OOV) words generated by puns in the 
-humorous tweet data, character-level Constitutional Neural 
-Networks (CNN) model would be more suitable for capturing the 
-single-token puns comparing to token level models. In addition, 
-\cite{CNN}'s study proves that character-level neural language 
-models outperform state-of-art word-level neural language 
-models. Moving forward, considering the promising future of 
-neural networks, we would like to build a character-level neural 
-language model (NLM) which relies on both LSTM RNN and character-level 
-CNN to improve our current system performance.
+\cite{PotashRR16} finds that 
+external knowledge is necessary to detect humor in tweet
+based data. This might include information about book and movie
+titles, song lyrics, biographies of celebrities etc. and is
+necessary given the reliance on current events and
+popular culture in making certain kinds of jokes.
 
-Last but not the least, \cite{2016hashtagwars} states that 
-external knowledge is crucial in order to detecting humor from 
-the tweet dataset based on its nature. In the future we intend 
-to make use of external knowledge in the NLM in possibly two 
-ways: With a deeper understanding of what kinds of external 
-knowledge are the most useful such as movie and book titles, 
-celebrity and song names, one is to incorporate them as features 
-in the NLM; The other is to combine the NLM with a Neural 
-Turing Machine (NTM) \cite{graves2014neural}, which is particularly 
-designed for interacting with external interfaces, with a 
-profound and solid study of NTM.
+We believe that Deep Learning techniques potentially offer
+improved handling of unknown words, long distance dependencies
+in text, and non--linear relationships among words and
+concepts. Moving forward we intend to explore a variety of
+these ideas and describe those briefly below.
 
-\section{Conclusion}
+\section{Future Work}
 
-Humor has not been addressed broadly in current computational 
-research area. Our research focuses on humor detection, developing 
-systems that can capture its continuous and subjective nature. 
+Our current language model approach is effective but 
+does not account for out of vocabulary
+words nor long distance dependencies. CNNs in combination with
+LSTMs seem to be a particularly promising way to overcome 
+these limitations (e.g., \cite{BerteroF16}) which we will
+explore and compare to our existing results.
+
+After evaluating
+CNNs and LSTMs we will explore how to include domain knowledge
+in these models. One possibility is to
+create word embeddings
+from domain specific materials and provide those to the CNNs
+along with more general text. Another is to investigate the use
+o Tree--Structured LSTMs \cite{TaiSM15}. These have the potential
+advantage of preserving non-linear structure in text, which may
+be helpful in recognizing some of the unusual variations of words
+and concepts that are characteristic of humor. 
+
  
 % include your own bib file like this:
 %\bibliographystyle{acl}
