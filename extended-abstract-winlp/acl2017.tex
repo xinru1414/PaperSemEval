@@ -145,22 +145,23 @@ participating in the ongoing \#HashtagWars staged nightly by @midnight.
 We also plan to experiment with equal amounts of tweet data and
 news data, to see if one has an inherent advantage over the other.
 
-Our language models performed better the pairwise comparison, 
-but it's clear that more investigation is needed to improve
+Our language models performed better in the pairwise comparison, 
+but it is clear that more investigation is needed to improve
 the semi-ranking results. 
 We believe that Deep Learning
 may overcome some of the limits of Ngram language models, and so
 will explore those next. 
+
 \section{Deep Learning}
 
-One of the limitations of our language model approach  
+One limitation of our language model approach  
 is the large number of out of vocabulary 
-words we will encounter. This problem can't be solved
+words we  encounter. This problem can not be solved
 by increasing the quantity of training data because
-humor relies on creative and inventive 
-uses of language. For example, puns often include
+humor relies on creative use of language. 
+For example, jokes often include puns based on 
 invented words, e.g., a singing cat makes beautiful {\textit meowsic}.  
-\cite{PotashRR17} suggests that character--based 
+\cite{PotashRR16} suggests that character--based 
 Convolutional Neural Networks (CNNs) are
 an effective solution for these situations since they are not
 dependent on observing tokens in training data.
@@ -172,7 +173,7 @@ Neural Networks (RNNs), in particular Long Short--Term Memory
 networks (LSTMs), are effective in a wide range of language
 modeling tasks (e.g., \cite{SundermeyerSN12},\cite{SundermeyeNS15}). 
 This seems to be due to their ability to capture
-long distance dependencies, which is something that traditional language
+long distance dependencies, which is something that Ngram language
 models can not do. 
 
 \cite{PotashRR16} finds that 
@@ -203,7 +204,7 @@ in these models. One possibility is to
 create word embeddings
 from domain specific materials and provide those to the CNNs
 along with more general text. Another is to investigate the use
-o Tree--Structured LSTMs \cite{TaiSM15}. These have the potential
+of Tree--Structured LSTMs \cite{TaiSM15}. These have the potential
 advantage of preserving non-linear structure in text, which may
 be helpful in recognizing some of the unusual variations of words
 and concepts that are characteristic of humor. 
