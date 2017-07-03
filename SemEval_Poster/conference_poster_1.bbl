@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{PotashRR17}
+Peter Potash, Alexey Romanov, and Anna Rumshisky.
+\newblock {SemEval}-2017 {Task}~6: {\#HashtagWars:} learning a sense of humor.
+\newblock In {\em Proceedings of the 11th International Workshop on Semantic
+  Evaluation (SemEval-2017)}, Vancouver, BC, August 2017.
+
+\bibitem{Heafield-estimate}
+Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn.
+\newblock Scalable modified {Kneser-Ney} language model estimation.
+\newblock In {\em Proceedings of the 51st Annual Meeting of the Association for
+  Computational Linguistics}, pages 690--696, Sofia, Bulgaria, August 2013.
+
+\bibitem{hello}
+Cristian Danescu-Niculescu-Mizil, Justin Cheng, and Lillian Kleinberg,
+  Jonand~Lee.
+\newblock You had me at hello: How phrasing affects memorability.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)}, pages 892--901.
+  Association for Computational Linguistics, 2012.
+
+\end{thebibliography}
