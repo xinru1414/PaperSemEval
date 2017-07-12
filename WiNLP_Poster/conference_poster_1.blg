@@ -4,46 +4,46 @@ The top-level auxiliary file: conference_poster_1.aux
 The style file: unsrt.bst
 Database file #1: sample.bib
 Warning--entry type for "EMNLP" isn't style-file defined
---line 34 of file sample.bib
+--line 27 of file sample.bib
 You've used 4 entries,
             1791 wiz_defined-function locations,
-            473 strings with 4525 characters,
-and the built_in function-call counts, 1107 in all, are:
-= -- 105
+            469 strings with 4437 characters,
+and the built_in function-call counts, 735 in all, are:
+= -- 53
 > -- 40
-< -- 2
+< -- 0
 + -- 15
 - -- 11
-* -- 64
-:= -- 155
-add.period$ -- 12
+* -- 40
+:= -- 120
+add.period$ -- 11
 call.type$ -- 4
 change.case$ -- 4
 chr.to.int$ -- 0
 cite$ -- 4
-duplicate$ -- 59
-empty$ -- 114
+duplicate$ -- 41
+empty$ -- 88
 format.name$ -- 11
-if$ -- 268
+if$ -- 170
 int.to.chr$ -- 0
 int.to.str$ -- 4
 missing$ -- 3
 newline$ -- 22
 num.names$ -- 3
-pop$ -- 22
+pop$ -- 27
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 36
+skip$ -- 9
 stack$ -- 0
-substring$ -- 64
-swap$ -- 22
-text.length$ -- 2
+substring$ -- 0
+swap$ -- 4
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 9
+while$ -- 3
 width$ -- 5
-write$ -- 46
+write$ -- 42
 (There was 1 warning)

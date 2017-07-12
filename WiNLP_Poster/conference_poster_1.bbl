@@ -6,21 +6,20 @@ Peter Potash, Alexey Romanov, and Anna Rumshisky.
 \newblock In {\em Proceedings of the 11th International Workshop on Semantic
   Evaluation (SemEval-2017)}, Vancouver, BC, August 2017.
 
+\bibitem{EMNLP}
+{EMNLP 2011 SIXTH WORKSHOP ON STATISTICAL MACHINE TRANSLATION}.
+\newblock \url{http://www.statmt.org/wmt11/translation-task.html}.
+
 \bibitem{Heafield-estimate}
 Kenneth Heafield, Ivan Pouzyrevsky, Jonathan~H. Clark, and Philipp Koehn.
 \newblock Scalable modified {Kneser-Ney} language model estimation.
 \newblock In {\em Proceedings of the 51st Annual Meeting of the Association for
-  Computational Linguistics}, pages 690--696, Sofia, Bulgaria, August 2013.
+  Computational Linguistics}, Sofia, Bulgaria, August 2013.
 
 \bibitem{hello}
 Cristian Danescu-Niculescu-Mizil, Justin Cheng, Jon Kleinberg, and Lillian Lee.
 \newblock You had me at hello: How phrasing affects memorability.
 \newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
-  Computational Linguistics: Long Papers - Volume 1}, ACL '12, pages 892--901,
-  Stroudsburg, PA, USA, 2012. Association for Computational Linguistics.
-
-\bibitem{EMNLP}
-{EMNLP 2011 SIXTH WORKSHOP ON STATISTICAL MACHINE TRANSLATION}.
-\newblock \url{http://www.statmt.org/wmt11/translation-task.html}.
+  Computational Linguistics}, Stroudsburg, PA, USA, 2012.
 
 \end{thebibliography}
